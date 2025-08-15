@@ -1,7 +1,6 @@
 package paulscode.android.mupen64plusae;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,7 +22,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.preference.PreferenceManager;
@@ -47,10 +44,9 @@ import paulscode.android.mupen64plusae.util.LocaleContextWrapper;
 import paulscode.android.mupen64plusae.util.Notifier;
 import paulscode.android.mupen64plusae.util.RomDatabase;
 
-public class SplashActivity extends AppCompatActivity implements ExtractAssetsListener, OnRequestPermissionsResultCallback {
+public class SplashActivity extends AppCompatActivity implements ExtractAssetsListener {
 
     static final int PERMISSION_REQUEST = 177;
-    static final int NUM_PERMISSIONS = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ? 1 : 2;
     private static final int SPLASH_DELAY = 1000;
     public static final String SOURCE_DIR = "mupen64plus_data";
 
@@ -58,8 +54,6 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     private AppData mAppData = null;
     private GlobalPrefs mGlobalPrefs = null;
     private AlertDialog mPermissionsNeeded = null;
-    private boolean mRequestingPermissions = false;
-    private static final String STATE_REQUESTING_PERMISSIONS = "STATE_REQUESTING_PERMISSIONS";
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -72,16 +66,14 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
 
     @Override
     protected void onNewIntent(Intent intent) {
-        Log.i("SplashActivity", "onNewIntent");
         super.onNewIntent(intent);
         setIntent(intent);
-        ActivityHelper.startGalleryActivity(SplashActivity.this, getIntent());
+        ActivityHelper.startGalleryActivity(this, getIntent());
         finish();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.i("SplashActivity", "onCreate");
         super.onCreate(savedInstanceState);
 
         DeviceUtil.clearLogCat();
@@ -96,10 +88,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
         PreferenceManager.setDefaultValues(this, R.xml.preferences_library, false);
         PreferenceManager.setDefaultValues(this, R.xml.preferences_touchscreen, false);
 
-        mGlobalPrefs = new GlobalPrefs(this, mAppData);
-
         FileUtil.makeDirs(mGlobalPrefs.touchscreenCustomSkinsDir);
-
         Notifier.initialize(this);
 
         getWindow().setFlags(LayoutParams.FLAG_KEEP_SCREEN_ON, LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -107,23 +96,11 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
         try {
             setContentView(R.layout.splash_activity);
         } catch (android.view.InflateException e) {
-            Log.e("SplashActivity", "Resource NOT found");
             Notifier.showToast(this, R.string.invalidInstall_message);
             return;
         }
 
         mTextView = findViewById(R.id.mainText);
-
-        try {
-            Drawable randomDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_arrow_u, null);
-            if (randomDrawable != null) {
-                Log.i("SplashActivity", "Resource found: " + randomDrawable);
-            }
-        } catch (android.content.res.Resources.NotFoundException e) {
-            Log.e("SplashActivity", "Resource NOT found");
-            Notifier.showToast(this, R.string.invalidInstall_message);
-            return;
-        }
 
         if (mGlobalPrefs.isBigScreenMode) {
             final ImageView splash = findViewById(R.id.mainImage);
@@ -136,93 +113,20 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
 
         SyncProgramsJobService.scheduleSyncingProgramsForChannel(this, mAppData.getChannelId());
 
-        if (savedInstanceState != null) {
-            mRequestingPermissions = savedInstanceState.getBoolean(STATE_REQUESTING_PERMISSIONS);
-        }
-
-        if (!mRequestingPermissions) {
-            requestPermissions();
-        }
+        // Solicita permissões assim que o app abrir
+        requestPermissions();
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        Log.i("SplashActivity", "onSaveInstanceState");
-        savedInstanceState.putBoolean(STATE_REQUESTING_PERMISSIONS, mRequestingPermissions);
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    public void onDestroy() {
-        Log.i("SplashActivity", "onDestroy");
-        super.onDestroy();
-        if (mPermissionsNeeded != null) {
-            mPermissionsNeeded.dismiss();
-        }
-    }
-
-    public void requestPermissions() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.POST_NOTIFICATIONS)) {
-                    mPermissionsNeeded = new AlertDialog.Builder(this)
-                            .setTitle(getString(R.string.assetExtractor_permissions_title))
-                            .setMessage(getString(R.string.assetExtractor_permissions_rationale_notifications))
-                            .setPositiveButton(getString(android.R.string.ok), (dialog, which) -> actuallyRequestPermissions())
-                            .setNegativeButton(getString(android.R.string.cancel), (dialog, which) -> new AlertDialog.Builder(SplashActivity.this)
-                                    .setTitle(getString(R.string.assetExtractor_error))
-                                    .setMessage(getString(R.string.assetExtractor_failed_permissions))
-                                    .setPositiveButton(android.R.string.ok, (dialog1, which1) -> SplashActivity.this.finish())
-                                    .setCancelable(false)
-                                    .show())
-                            .setCancelable(false)
-                            .show();
-                } else {
-                    actuallyRequestPermissions();
-                }
-            } else {
-                checkExtractAssetsOrCleanup();
-            }
-            return;
-        }
-
+    private void requestPermissions() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE) ||
-                    ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                mPermissionsNeeded = new AlertDialog.Builder(this)
-                        .setTitle(getString(R.string.assetExtractor_permissions_title))
-                        .setMessage(getString(R.string.assetExtractor_permissions_rationale))
-                        .setPositiveButton(getString(android.R.string.ok), (dialog, which) -> actuallyRequestPermissions())
-                        .setNegativeButton(getString(android.R.string.cancel), (dialog, which) -> new AlertDialog.Builder(SplashActivity.this)
-                                .setTitle(getString(R.string.assetExtractor_error))
-                                .setMessage(getString(R.string.assetExtractor_failed_permissions))
-                                .setPositiveButton(android.R.string.ok, (dialog1, which1) -> SplashActivity.this.finish())
-                                .setCancelable(false)
-                                .show())
-                        .setCancelable(false)
-                        .show();
-            } else {
-                actuallyRequestPermissions();
-            }
+            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    PERMISSION_REQUEST);
         } else {
             checkExtractAssetsOrCleanup();
         }
-    }
-
-    @SuppressLint("InlinedApi")
-    public void actuallyRequestPermissions() {
-        mRequestingPermissions = true;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, PERMISSION_REQUEST);
-            return;
-        }
-
-        ActivityCompat.requestPermissions(this, new String[]{
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-        }, PERMISSION_REQUEST);
     }
 
     @Override
@@ -230,20 +134,20 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == PERMISSION_REQUEST) {
-            boolean good = permissions.length == NUM_PERMISSIONS && grantResults.length == NUM_PERMISSIONS;
-
-            for (int i = 0; i < grantResults.length && good; i++) {
-                if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                    good = false;
+            boolean granted = true;
+            if (grantResults.length != 2) granted = false;
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    granted = false;
                     break;
                 }
             }
 
-            if (!good) {
-                mPermissionsNeeded = new AlertDialog.Builder(SplashActivity.this)
+            if (!granted) {
+                mPermissionsNeeded = new AlertDialog.Builder(this)
                         .setTitle(getString(R.string.assetExtractor_error))
                         .setMessage(getString(R.string.assetExtractor_failed_permissions))
-                        .setPositiveButton(android.R.string.ok, (dialog, which) -> SplashActivity.this.finish())
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> finish())
                         .setCancelable(false)
                         .show();
             } else {
@@ -262,7 +166,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
             final Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(extractAssetsTaskLauncher, SPLASH_DELAY);
         } else {
-            ActivityHelper.startGalleryActivity(SplashActivity.this, getIntent());
+            ActivityHelper.startGalleryActivity(this, getIntent());
             finish();
         }
     }
@@ -270,7 +174,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     private final Runnable extractAssetsTaskLauncher = this::extractAssets;
 
     private void extractAssets() {
-        new ExtractAssetsOrCleanupTask(this, getAssets(), mAppData, mGlobalPrefs, SOURCE_DIR, mAppData.coreSharedDataDir, SplashActivity.this).doInBackground();
+        new ExtractAssetsOrCleanupTask(this, getAssets(), mAppData, mGlobalPrefs, SOURCE_DIR, mAppData.coreSharedDataDir, this).doInBackground();
     }
 
     @Override
@@ -285,7 +189,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     @Override
     public void onExtractAssetsFinished(List<Failure> failures) {
         runOnUiThread(() -> {
-            if (failures.size() != 0) {
+            if (!failures.isEmpty()) {
                 final String message = getString(R.string.assetExtractor_failed);
                 StringBuilder builder = new StringBuilder();
                 builder.append(message.replace("\n", "<br/>")).append("<p><small>");
@@ -295,7 +199,6 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                 }
                 builder.append("</small>");
                 mTextView.setText(AppData.fromHtml(builder.toString()));
-                Log.e("SplashActivity", "Setting text: " + AppData.fromHtml(builder.toString()));
                 mAppData.putAssetCheckNeeded(true);
             } else {
                 mAppData.putAssetCheckNeeded(false);
@@ -309,10 +212,10 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
             }
 
             final Handler handler = new Handler(Looper.getMainLooper());
-            long delay = failures.size() != 0 ? 5000 : 0;
+            long delay = failures.isEmpty() ? 0 : 5000;
             handler.postDelayed(() -> {
-                ActivityHelper.startGalleryActivity(SplashActivity.this, getIntent());
-                SplashActivity.this.finish();
+                ActivityHelper.startGalleryActivity(this, getIntent());
+                finish();
             }, delay);
         });
     }
