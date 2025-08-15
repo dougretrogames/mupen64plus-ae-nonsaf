@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,14 +24,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 import androidx.core.content.ContextCompat;
-import androidx.core.contentesesourcesCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.preference.PreferenceManager;
 import androidx.tvprovider.media.tv.Channel;
 import androidx.tvprovider.media.tv.TvContractCompat;
 import androidx.tvprovider.media.tv.ChannelLogoUtils;
-
-import paulscode.android.mupen64plusae.R;
 
 import java.util.List;
 
@@ -47,21 +47,18 @@ import paulscode.android.mupen64plusae.util.LocaleContextWrapper;
 import paulscode.android.mupen64plusae.util.Notifier;
 import paulscode.android.mupen64plusae.util.RomDatabase;
 
-public class SplashActivity extends AppCompatActivity implements ExtractAssetsListener, ActivityCompat.OnRequestPermissionsResultCallback
-{
-    static final int PERMISSION_REQUEST = 177;
-    static final int NUM_PERMISSIONS = 2; // READ + WRITE STORAGE
+public class SplashActivity extends AppCompatActivity implements ExtractAssetsListener, OnRequestPermissionsResultCallback {
 
+    static final int PERMISSION_REQUEST = 177;
+    static final int NUM_PERMISSIONS = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ? 1 : 2;
     private static final int SPLASH_DELAY = 1000;
     public static final String SOURCE_DIR = "mupen64plus_data";
 
     private TextView mTextView;
     private AppData mAppData = null;
     private GlobalPrefs mGlobalPrefs = null;
-
     private AlertDialog mPermissionsNeeded = null;
     private boolean mRequestingPermissions = false;
-
     private static final String STATE_REQUESTING_PERMISSIONS = "STATE_REQUESTING_PERMISSIONS";
 
     @Override
@@ -120,9 +117,9 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
         try {
             Drawable randomDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_arrow_u, null);
             if (randomDrawable != null) {
-                Log.i("SplashActivity", "Resource found: " + randomDrawable.toString());
+                Log.i("SplashActivity", "Resource found: " + randomDrawable);
             }
-        } catch (android.contentesesources.NotFoundException e) {
+        } catch (android.content.res.Resources.NotFoundException e) {
             Log.e("SplashActivity", "Resource NOT found");
             Notifier.showToast(this, R.string.invalidInstall_message);
             return;
@@ -165,22 +162,46 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     }
 
     public void requestPermissions() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permissionEAD_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.POST_NOTIFICATIONS)) {
+                    mPermissionsNeeded = new AlertDialog.Builder(this)
+                            .setTitle(getString(R.string.assetExtractor_permissions_title))
+                            .setMessage(getString(R.string.assetExtractor_permissions_rationale_notifications))
+                            .setPositiveButton(getString(android.R.string.ok), (dialog, which) -> actuallyRequestPermissions())
+                            .setNegativeButton(getString(android.R.string.cancel), (dialog, which) -> new AlertDialog.Builder(SplashActivity.this)
+                                    .setTitle(getString(R.string.assetExtractor_error))
+                                    .setMessage(getString(R.string.assetExtractor_failed_permissions))
+                                    .setPositiveButton(android.R.string.ok, (dialog1, which1) -> SplashActivity.this.finish())
+                                    .setCancelable(false)
+                                    .show())
+                            .setCancelable(false)
+                            .show();
+                } else {
+                    actuallyRequestPermissions();
+                }
+            } else {
+                checkExtractAssetsOrCleanup();
+            }
+            return;
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permissionEAD_EXTERNAL_STORAGE) ||
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE) ||
                     ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-
                 mPermissionsNeeded = new AlertDialog.Builder(this)
                         .setTitle(getString(R.string.assetExtractor_permissions_title))
                         .setMessage(getString(R.string.assetExtractor_permissions_rationale))
-                        .setPositiveButton(getString(android.string.ok), (dialog, which) -> actuallyRequestPermissions())
-                        .setNegativeButton(getString(android.string.cancel), (dialog, which) -> new AlertDialog.Builder(SplashActivity.this)
+                        .setPositiveButton(getString(android.R.string.ok), (dialog, which) -> actuallyRequestPermissions())
+                        .setNegativeButton(getString(android.R.string.cancel), (dialog, which) -> new AlertDialog.Builder(SplashActivity.this)
                                 .setTitle(getString(R.string.assetExtractor_error))
                                 .setMessage(getString(R.string.assetExtractor_failed_permissions))
-                                .setPositiveButton(android.string.ok, (dialog1, which1) -> SplashActivity.this.finish())
-                                .setCancelable(false).show())
-                        .setCancelable(false).show();
+                                .setPositiveButton(android.R.string.ok, (dialog1, which1) -> SplashActivity.this.finish())
+                                .setCancelable(false)
+                                .show())
+                        .setCancelable(false)
+                        .show();
             } else {
                 actuallyRequestPermissions();
             }
@@ -192,16 +213,25 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     @SuppressLint("InlinedApi")
     public void actuallyRequestPermissions() {
         mRequestingPermissions = true;
-        ActivityCompatequestPermissions(this, new String[]{
-                Manifest.permissionEAD_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, PERMISSION_REQUEST);
+            return;
+        }
+
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        }, PERMISSION_REQUEST);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
         if (requestCode == PERMISSION_REQUEST) {
-            boolean good = true;
-            if (permissions.length != NUM_PERMISSIONS || grantResults.length != NUM_PERMISSIONS) good = false;
+            boolean good = permissions.length == NUM_PERMISSIONS && grantResults.length == NUM_PERMISSIONS;
+
             for (int i = 0; i < grantResults.length && good; i++) {
                 if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                     good = false;
@@ -213,8 +243,9 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                 mPermissionsNeeded = new AlertDialog.Builder(SplashActivity.this)
                         .setTitle(getString(R.string.assetExtractor_error))
                         .setMessage(getString(R.string.assetExtractor_failed_permissions))
-                        .setPositiveButton(android.string.ok, (dialog, which) -> SplashActivity.this.finish())
-                        .setCancelable(false).show();
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> SplashActivity.this.finish())
+                        .setCancelable(false)
+                        .show();
             } else {
                 checkExtractAssetsOrCleanup();
             }
@@ -227,6 +258,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                         SOURCE_DIR, mAppData.coreSharedDataDir)) {
 
             mAppData.putAppVersion(mAppData.appVersionCode);
+
             final Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(extractAssetsTaskLauncher, SPLASH_DELAY);
         } else {
@@ -244,8 +276,8 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     @Override
     public void onExtractAssetsProgress(String nextFileToExtract, int currentAsset, int totalAssets) {
         runOnUiThread(() -> {
-            float percent = (100f * currentAsset) / totalAssets;
-            String text = getString(R.string.assetExtractor_progress, percent, nextFileToExtract);
+            final float percent = (100f * currentAsset) / totalAssets;
+            final String text = getString(R.string.assetExtractor_progress, percent, nextFileToExtract);
             mTextView.setText(text);
         });
     }
@@ -254,11 +286,12 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     public void onExtractAssetsFinished(List<Failure> failures) {
         runOnUiThread(() -> {
             if (failures.size() != 0) {
-                String message = getString(R.string.assetExtractor_failed);
+                final String message = getString(R.string.assetExtractor_failed);
                 StringBuilder builder = new StringBuilder();
-                builder.append(messageeplace("\n", "<br/>")).append("<p><small>");
-                for (Failure failure : failures) {
-                    builder.append(failure.toString()).append("<br/>");
+                builder.append(message.replace("\n", "<br/>")).append("<p><small>");
+                for (final Failure failure : failures) {
+                    builder.append(failure.toString());
+                    builder.append("<br/>");
                 }
                 builder.append("</small>");
                 mTextView.setText(AppData.fromHtml(builder.toString()));
@@ -288,20 +321,23 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
         Channel.Builder builder = new Channel.Builder();
         Intent appIntent = new Intent(getApplicationContext(), SplashActivity.class);
         appIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+
         builder.setType(TvContractCompat.Channels.TYPE_PREVIEW)
                 .setDisplayName(getString(R.string.showRecentlyPlayed_title))
                 .setAppLinkIntent(appIntent);
 
         Context context = getApplicationContext();
+
         try {
             Uri channelUri = context.getContentResolver().insert(
                     TvContractCompat.Channels.CONTENT_URI, builder.build().toContentValues());
+
             if (channelUri != null) {
                 long channelId = ContentUris.parseId(channelUri);
                 mAppData.putChannelId(channelId);
                 Bitmap bitmapIcon = BitmapFactory.decodeResource(getResources(), R.drawable.icon);
                 ChannelLogoUtils.storeChannelLogo(context, channelId, bitmapIcon);
-                TvContractCompatequestChannelBrowsable(context, channelId);
+                TvContractCompat.requestChannelBrowsable(context, channelId);
             }
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
