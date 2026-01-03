@@ -1,23 +1,3 @@
-/*
- * Mupen64PlusAE, an N64 emulator for the Android platform
- *
- * Copyright (C) 2012 Paul Lamb
- *
- * This file is part of Mupen64PlusAE.
- *
- * Mupen64PlusAE is free software: you can redistribute it and/or modify it under the terms of the
- * GNU General Public License as published by the Free Software Foundation, either version 2 of the
- * License, or (at your option) any later version.
- *
- * Mupen64PlusAE is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * See the GNU General Public License for more details. You should have received a copy of the GNU
- * General Public License along with Mupen64PlusAE. If not, see <http://www.gnu.org/licenses/>.
- *
- * Authors: paulscode, lioncash, littleguy77
- */
-
 package paulscode.android.mupen64plusae;
 
 import android.Manifest;
@@ -77,8 +57,8 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     //Permission request ID
     static final int PERMISSION_REQUEST = 177;
 
-    //Total number of permissions requested
-    static final int NUM_PERMISSIONS = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU? 1 : 2;
+    //Total number of permissions requested (1 for POST_NOTIFICATIONS on Android 13+, else 2 for read/write)
+    static final int NUM_PERMISSIONS = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ? 1 : 2;
 
     /** The minimum duration that the splash screen is shown, in milliseconds. */
     private static final int SPLASH_DELAY = 1000;
@@ -255,22 +235,29 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     public void requestPermissions()
     {
         // Notification permissions for Android 13 and up
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
         {
-            // Android 13 needs notification permissions
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED &&
-                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Check POST_NOTIFICATIONS permission
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
                 // Should we show an explanation?
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.POST_NOTIFICATIONS))
                 {
-                    //Show dialog asking for permissions
-                    //Show dialog stating that the app can't continue without proper permissions
+                    // Show dialog asking for permission with rationale
                     mPermissionsNeeded = new AlertDialog.Builder(this)
                             .setTitle(getString(R.string.assetExtractor_permissions_title))
                             .setMessage(getString(R.string.assetExtractor_permissions_rationale_notifications))
-                            .setPositiveButton(getString(android.R.string.ok), (dialog, which) -> actuallyRequestPermissions()).setNegativeButton(getString(android.R.string.cancel), (dialog, which) -> mPermissionsNeeded = new AlertDialog.Builder(SplashActivity.this).setTitle(getString(R.string.assetExtractor_error))
-                                    .setMessage(getString(R.string.assetExtractor_failed_permissions))
-                                    .setPositiveButton(getString( android.R.string.ok ), (dialog1, which1) -> SplashActivity.this.finish()).setCancelable(false).show()).setCancelable(false).show();
+                            .setPositiveButton(android.R.string.ok, (dialog, which) -> actuallyRequestPermissions())
+                            .setNegativeButton(android.R.string.cancel, (dialog, which) -> {
+                                // User declined from rationale dialog -> show final message and exit
+                                new AlertDialog.Builder(SplashActivity.this)
+                                        .setTitle(getString(R.string.assetExtractor_error))
+                                        .setMessage(getString(R.string.assetExtractor_failed_permissions))
+                                        .setPositiveButton(android.R.string.ok, (d, w) -> SplashActivity.this.finish())
+                                        .setCancelable(false)
+                                        .show();
+                            })
+                            .setCancelable(false)
+                            .show();
                 }
                 else
                 {
@@ -286,23 +273,30 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
             return;
         }
 
-        // Request storage permissions for older android version only without scoped storage
-        // This doesn't work reliably with older Android versions
+        // Request storage permissions for older android versions (legacy external storage permissions)
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-           ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
         {
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE) ||
                 ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE))
             {
-                //Show dialog asking for permissions
-                //Show dialog stating that the app can't continue without proper permissions
+                // Show dialog asking for permissions with rationale
                 mPermissionsNeeded = new AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.assetExtractor_permissions_title))
-                    .setMessage(getString(R.string.assetExtractor_permissions_rationale))
-                    .setPositiveButton(getString(android.R.string.ok), (dialog, which) -> actuallyRequestPermissions()).setNegativeButton(getString(android.R.string.cancel), (dialog, which) -> mPermissionsNeeded = new AlertDialog.Builder(SplashActivity.this).setTitle(getString(R.string.assetExtractor_error))
-                        .setMessage(getString(R.string.assetExtractor_failed_permissions))
-                        .setPositiveButton(getString( android.R.string.ok ), (dialog1, which1) -> SplashActivity.this.finish()).setCancelable(false).show()).setCancelable(false).show();
+                        .setTitle(getString(R.string.assetExtractor_permissions_title))
+                        .setMessage(getString(R.string.assetExtractor_permissions_rationale))
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> actuallyRequestPermissions())
+                        .setNegativeButton(android.R.string.cancel, (dialog, which) -> {
+                            // User declined from rationale dialog -> show final message and exit
+                            new AlertDialog.Builder(SplashActivity.this)
+                                    .setTitle(getString(R.string.assetExtractor_error))
+                                    .setMessage(getString(R.string.assetExtractor_failed_permissions))
+                                    .setPositiveButton(android.R.string.ok, (d, w) -> SplashActivity.this.finish())
+                                    .setCancelable(false)
+                                    .show();
+                        })
+                        .setCancelable(false)
+                        .show();
             }
             else
             {
@@ -354,16 +348,18 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
 
             if (!good)
             {
-                // permission denied, boo! Disable the app.
+                // permission denied, show final dialog and close app
                 mPermissionsNeeded = new AlertDialog.Builder(SplashActivity.this).setTitle(getString(R.string.assetExtractor_error))
                     .setMessage(getString(R.string.assetExtractor_failed_permissions))
                     .setPositiveButton(getString( android.R.string.ok ), (dialog, which) -> SplashActivity.this.finish()).setCancelable(false).show();
             }
             else
             {
-                //Permissions already granted, continue
+                // Permissions granted, continue
                 checkExtractAssetsOrCleanup();
             }
+
+            mRequestingPermissions = false;
         }
     }
 
