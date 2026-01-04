@@ -7,6 +7,6 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode = 337
-        versionName = "3.0.337 (beta)"
+        versionName = "3.0.337"
     }
 }
