@@ -3,7 +3,7 @@ name: Mupen64Plus-AE Release
 on: 
   push:
   pull_request:
-  workflow_dispatch: # Adiciona o botão para rodar manualmente
+  workflow_dispatch: 
 
 jobs:
   build-release:
@@ -19,7 +19,6 @@ jobs:
       with:
         java-version: 21
         distribution: 'adopt'
-        # Adiciona cache automático para o Gradle para evitar erro 403 Forbidden
         cache: 'gradle' 
 
     - uses: android-actions/setup-android@v3
@@ -31,6 +30,8 @@ jobs:
         echo "ANDROID_NDK_HOME=$ANDROID_NDK_HOME" >> $GITHUB_ENV
         echo "ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT:-$ANDROID_HOME}" >> $GITHUB_ENV
         echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
+        # Extrai os 7 primeiros caracteres do commit para usar no nome do arquivo
+        echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
 
     - name: Install dependencies
       run: |
@@ -57,7 +58,6 @@ jobs:
         fi
 
     - name: Build release APK
-      # Adicionei --no-daemon para builds em CI e --stacktrace para ver melhor erros de rede
       run: ./gradlew assembleRelease --no-daemon --stacktrace
 
     - name: Sign release APK with generic keystore
@@ -68,10 +68,8 @@ jobs:
         if [ -z "$unsigned" ]; then
           unsigned=$(ls "$APK_DIR"/*.apk 2>/dev/null | head -n1 || true)
         fi
-        echo "Unsigned APK: $unsigned"
         if [ -f "$unsigned" ]; then
           "$BUILD_TOOLS_DIR"/apksigner sign --ks keystore/release.keystore --ks-pass pass:android --key-pass pass:android --out "$APK_DIR"/Mupen64PlusAE-release-signed.apk "$unsigned"
-          ls -la "$APK_DIR"
         else
           echo "No APK found to sign"
           exit 1
@@ -80,5 +78,6 @@ jobs:
     - name: Upload release APK
       uses: actions/upload-artifact@v4
       with:
-        name: mupen64plus-ae-release
+        # O nome do arquivo zip no GitHub Actions será: mupen64plus-ae-release-7charsha
+        name: mupen64plus-ae-release-${{ env.SHORT_SHA }}
         path: ${{ github.workspace }}/app/build/outputs/apk/release/Mupen64PlusAE-release-signed.apk
