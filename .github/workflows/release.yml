@@ -1,32 +1,36 @@
 name: Mupen64Plus-AE Release
 
-on: [push, pull_request]
+on: 
+  push:
+  pull_request:
+  workflow_dispatch: # Adiciona o botão para rodar manualmente
 
 jobs:
   build-release:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: android-actions/setup-android@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
-        cmdline-tools-version: 9477386
+        fetch-depth: 0
 
     - uses: actions/setup-java@v4
       with:
         java-version: 21
         distribution: 'adopt'
+        # Adiciona cache automático para o Gradle para evitar erro 403 Forbidden
+        cache: 'gradle' 
+
+    - uses: android-actions/setup-android@v3
+      with:
+        cmdline-tools-version: 9477386
 
     - name: Set up environment variables
       run: |
         echo "ANDROID_NDK_HOME=$ANDROID_NDK_HOME" >> $GITHUB_ENV
-        # prefer ANDROID_SDK_ROOT if set, otherwise fall back to ANDROID_HOME
         echo "ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT:-$ANDROID_HOME}" >> $GITHUB_ENV
         echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
-
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: Install dependencies
       run: |
@@ -53,7 +57,8 @@ jobs:
         fi
 
     - name: Build release APK
-      run: ./gradlew assembleRelease
+      # Adicionei --no-daemon para builds em CI e --stacktrace para ver melhor erros de rede
+      run: ./gradlew assembleRelease --no-daemon --stacktrace
 
     - name: Sign release APK with generic keystore
       run: |
