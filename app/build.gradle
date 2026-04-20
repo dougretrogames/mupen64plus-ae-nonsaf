@@ -184,4 +184,3 @@ dependencies {
     implementation project(':mupen64plus-video-parallel')
     implementation project(':mupen64plus-core')
 }
-
