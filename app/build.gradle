@@ -24,11 +24,16 @@ android {
     }
     signingConfigs {
         release {
-            // Insira os dados da sua chave abaixo para assinar o APK final
-            // storeFile file('sua_chave.jks')
-            // storePassword 'sua_senha'
-            // keyAlias 'seu_alias'
-            // keyPassword 'sua_senha_da_chave'
+            // Tenta localizar o keystore gerado pelo Workflow do GitHub ou um local
+            def ksFile = rootProject.file('keystore/release.keystore')
+            if (ksFile.exists()) {
+                storeFile ksFile
+                // Usa a senha do GitHub Secret ou o padrão 'android'
+                def pass = System.getenv("RELEASE_STORE_PASSWORD") ?: 'android'
+                storePassword pass
+                keyAlias 'mupen64plus'
+                keyPassword pass
+            }
             
             enableV1Signing true
             enableV2Signing true
@@ -40,7 +45,10 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            // Só aplica a configuração de assinatura se o storeFile foi definido acima
+            if (signingConfigs.release.storeFile != null) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             ndk {

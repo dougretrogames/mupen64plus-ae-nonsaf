@@ -30,7 +30,6 @@ jobs:
         echo "ANDROID_NDK_HOME=$ANDROID_NDK_HOME" >> $GITHUB_ENV
         echo "ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT:-$ANDROID_HOME}" >> $GITHUB_ENV
         echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
-        # Extrai os 7 primeiros caracteres do commit para usar no nome do arquivo
         echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
 
     - name: Install dependencies
@@ -42,34 +41,24 @@ jobs:
       run: |
         yes | sdkmanager --sdk_root=${ANDROID_SDK_ROOT} "platforms;android-33" "build-tools;33.0.2" "platform-tools"
 
-    - name: Restore keystore cache
-      uses: actions/cache@v4
-      with:
-        path: keystore
-        key: ${{ runner.os }}-mupen64plus-keystore-v1
-
-    - name: Create generic keystore (if missing)
+    - name: Decode Keystore
       run: |
         mkdir -p keystore
-        if [ ! -f keystore/release.keystore ]; then
-          keytool -genkeypair -v -keystore keystore/release.keystore -alias mupen64plus -keyalg RSA -keysize 2048 -validity 10000 -storepass android -keypass android -dname "CN=Generic, OU=Mupen, O=Generic, L=City, S=State, C=US"
-        else
-          echo "Keystore already exists, reusing it."
-        fi
+        echo "${{ secrets.RELEASE_KEYSTORE }}" | base64 --decode > keystore/release.keystore
 
     - name: Build release APK
       run: ./gradlew assembleRelease --no-daemon --stacktrace
+      env:
+        RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
 
-    - name: Sign release APK with generic keystore
+    - name: Verify and Sign release APK
       run: |
         BUILD_TOOLS_DIR=$(ls -d "${ANDROID_SDK_ROOT}/build-tools/"* | sort -V | tail -n1)
         APK_DIR=app/build/outputs/apk/release
-        unsigned=$(ls "$APK_DIR"/*-unsigned.apk 2>/dev/null | head -n1 || true)
-        if [ -z "$unsigned" ]; then
-          unsigned=$(ls "$APK_DIR"/*.apk 2>/dev/null | head -n1 || true)
-        fi
-        if [ -f "$unsigned" ]; then
-          "$BUILD_TOOLS_DIR"/apksigner sign --ks keystore/release.keystore --ks-pass pass:android --key-pass pass:android --out "$APK_DIR"/Mupen64PlusAE-release-signed.apk "$unsigned"
+        APK_FILE=$(ls "$APK_DIR"/Mupen64PlusAE-release.apk 2>/dev/null || ls "$APK_DIR"/*.apk 2>/dev/null | head -n1)
+        
+        if [ -f "$APK_FILE" ]; then
+          "$BUILD_TOOLS_DIR"/apksigner sign --ks keystore/release.keystore --ks-pass pass:${{ secrets.RELEASE_KEYSTORE_PASSWORD }} --key-pass pass:${{ secrets.RELEASE_KEYSTORE_PASSWORD }} --out "$APK_DIR"/Mupen64PlusAE-release-signed.apk "$APK_FILE"
         else
           echo "No APK found to sign"
           exit 1
@@ -78,6 +67,5 @@ jobs:
     - name: Upload release APK
       uses: actions/upload-artifact@v4
       with:
-        # O nome do arquivo zip no GitHub Actions será: mupen64plus-ae-release-7charsha
         name: mupen64plus-ae-release-${{ env.SHORT_SHA }}
         path: ${{ github.workspace }}/app/build/outputs/apk/release/Mupen64PlusAE-release-signed.apk
