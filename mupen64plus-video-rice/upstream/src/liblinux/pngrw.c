@@ -33,6 +33,12 @@
 #include "BMGImage.h"
 #include "BMGUtils.h"
 #ifdef _BMG_LIBPNG_STANDALONE
+#ifdef ANDROID
+#include <android/log.h>
+#define stderr ((FILE*)2)
+#define fprintf(f, ...) __android_log_print(ANDROID_LOG_ERROR, "mupen64plus-video-rice", __VA_ARGS__)
+#endif
+
 #include "BMGLibPNG.h"
 #else
 #include "pngrw.h"

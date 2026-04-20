@@ -57,13 +57,13 @@
 
     <androidx.preference.CheckBoxPreference
         android:icon="@drawable/ic_gamepad"
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:key="autoPlayerMapping"
         android:summary="@string/defaultsAutoPlayerMapping_summary"
         android:title="@string/defaultsAutoPlayerMapping_title" />
     <androidx.preference.CheckBoxPreference
         android:icon="@drawable/ic_gamepad"
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:key="allEmulatedControllersPlugged"
         android:summary="@string/defaultsAllEmulatedControllersAlwaysAttached_summary"
         android:title="@string/defaultsAllEmulatedControllersAlwaysAttached_title" />

@@ -49,6 +49,7 @@ LOCAL_SRC_FILES :=                      \
     $(SRCDIR)/liblinux/BMGUtils.c       \
     $(SRCDIR)/liblinux/bmp.c            \
     $(SRCDIR)/liblinux/pngrw.c          \
+    ../ndkLibs/png_compat.c
 
 LOCAL_CFLAGS :=         \
     $(COMMON_CFLAGS)    \

@@ -18,6 +18,7 @@ EGLConfig config;
 EGLContext context = EGL_NO_CONTEXT;
 EGLSurface surface = EGL_NO_SURFACE;
 ANativeWindow* native_window = nullptr;
+static bool g_egl_initialized = false;
 std::mutex nativeWindowAccess;
 int isGLES2 = 1;
 bool new_surface = false;
@@ -95,19 +96,21 @@ extern DECLSPEC m64p_error VidExtFuncInit()
     surface = EGL_NO_SURFACE;
     context = EGL_NO_CONTEXT;
     display = EGL_NO_DISPLAY;
+    g_egl_initialized = false;
     memcpy(attribList, defaultAttributeList, sizeof(defaultAttributeList));
     memcpy(windowAttribList, defaultWindowAttribs, sizeof(defaultWindowAttribs));
     memcpy(contextAttribs, defaultContextAttribs, sizeof(defaultContextAttribs));
 
     if ((display = eglGetDisplay(EGL_DEFAULT_DISPLAY)) == EGL_NO_DISPLAY) {
         LOGE("eglGetDisplay() returned error %d", eglGetError());
-        return M64ERR_INVALID_STATE;
+        return M64ERR_SUCCESS; // Non-fatal for Vulkan support
     }
     if (!eglInitialize(display, 0, 0)) {
         LOGE("eglInitialize() returned error %d", eglGetError());
-        return M64ERR_INVALID_STATE;
+        return M64ERR_SUCCESS; // Non-fatal for Vulkan support
     }
 
+    g_egl_initialized = true;
     return M64ERR_SUCCESS;
 }
 
@@ -127,64 +130,74 @@ extern DECLSPEC m64p_error VidExtFuncSetMode(int Width, int Height, int BitsPerP
 	{
 		std::unique_lock<std::mutex> guard(nativeWindowAccess);
 
-		EGLint num_config;
-		if (!eglChooseConfig(display, attribList, &config, 1, &num_config)) {
-			LOGE("eglChooseConfig() returned error %d", eglGetError());
-			return M64ERR_INVALID_STATE;
-		}
-		if (num_config == 0) {
-			//Try to fallback to GLES context
-			eglBindAPI(EGL_OPENGL_ES_API);
-			attribList[FindIndex(attribList, sizeof(attribList), EGL_RENDERABLE_TYPE) + 1] = EGL_OPENGL_ES2_BIT;
+		if (g_egl_initialized) {
+			EGLint num_config;
 			if (!eglChooseConfig(display, attribList, &config, 1, &num_config)) {
 				LOGE("eglChooseConfig() returned error %d", eglGetError());
-				return M64ERR_INVALID_STATE;
+				// Don't return error, allow fallback or Vulkan
 			}
-		}
+			if (num_config == 0) {
+				//Try to fallback to GLES context
+				eglBindAPI(EGL_OPENGL_ES_API);
+				attribList[FindIndex(attribList, sizeof(attribList), EGL_RENDERABLE_TYPE) + 1] = EGL_OPENGL_ES2_BIT;
+				if (!eglChooseConfig(display, attribList, &config, 1, &num_config)) {
+					LOGE("eglChooseConfig() fallback returned error %d", eglGetError());
+				}
+			}
 
-		if (!(context = eglCreateContext(display, config, EGL_NO_CONTEXT, contextAttribs))) {
-			//If creating the context failed, just try to create a GLES2/3 context
-			//This is useful because GLideN64 requests an OpenGL 3.3 core context.
-			if (!(context = eglCreateContext(display, config, EGL_NO_CONTEXT, defaultGlEsContextAttribs))) {
-				LOGE("eglCreateContext() returned error %d", eglGetError());
-				return M64ERR_INVALID_STATE;
+			if (num_config > 0) {
+				if (!(context = eglCreateContext(display, config, EGL_NO_CONTEXT, contextAttribs))) {
+					//If creating the context failed, just try to create a GLES2/3 context
+					//This is useful because GLideN64 requests an OpenGL 3.3 core context.
+					if (!(context = eglCreateContext(display, config, EGL_NO_CONTEXT, defaultGlEsContextAttribs))) {
+						LOGE("eglCreateContext() returned error %d", eglGetError());
+					}
+				}
 			}
 		}
 	}
 
 	// Wait for the native window to be set before continuing
-	while (native_window == nullptr) {
+	int waitCount = 0;
+	while (native_window == nullptr && waitCount < 500) {
 		usleep(1000);
+		waitCount++;
 	}
 
 	{
 		std::unique_lock<std::mutex> guard(nativeWindowAccess);
 		if(new_surface && native_window != nullptr)
 		{
-			LOGI("VidExtFuncSetMode: Initializing surface");
+			if (g_egl_initialized && context != EGL_NO_CONTEXT) {
+				LOGI("VidExtFuncSetMode: Initializing EGL surface");
 
-			if (!(surface = eglCreateWindowSurface(display, config, (EGLNativeWindowType)native_window, windowAttribList)))
-			{
-				LOGE("eglCreateWindowSurface() returned error %d", eglGetError());
-				return M64ERR_INVALID_STATE;
-			}
-
-			if (!eglMakeCurrent(display, surface, surface, context))
-			{
-				LOGE("eglMakeCurrent() returned error %d", eglGetError());
-				return M64ERR_INVALID_STATE;
+				if (!(surface = eglCreateWindowSurface(display, config, (EGLNativeWindowType)native_window, windowAttribList)))
+				{
+					LOGE("eglCreateWindowSurface() returned error %d", eglGetError());
+					// If this fails, we continue anyway to support Vulkan plugins
+				} else {
+					if (!eglMakeCurrent(display, surface, surface, context))
+					{
+						LOGE("eglMakeCurrent() returned error %d", eglGetError());
+					}
+				}
+			} else {
+				LOGI("VidExtFuncSetMode: Skipping EGL surface initialization (Vulkan mode or EGL init failed)");
 			}
 
 			new_surface = false;
 		} else {
-			LOGE("VidExtFuncSetMode called before surface has been set");
-			return M64ERR_INVALID_STATE;
+			LOGE("VidExtFuncSetMode: No native window available");
 		}
 
-		EGLLoader::loadEGLFunctions();
+		if (g_egl_initialized && context != EGL_NO_CONTEXT) {
+			EGLLoader::loadEGLFunctions();
 
-		const char * strVersion = reinterpret_cast<const char*>(g_glGetString(GL_VERSION));
-		isGLES2 = strstr(strVersion, "OpenGL ES 2") != nullptr;
+			const char * strVersion = reinterpret_cast<const char*>(g_glGetString(GL_VERSION));
+			if (strVersion) {
+				isGLES2 = strstr(strVersion, "OpenGL ES 2") != nullptr;
+			}
+		}
 	}
 
     return M64ERR_SUCCESS;
@@ -381,31 +394,26 @@ extern DECLSPEC m64p_error VidExtFuncGLSwapBuf()
 	if(native_window != nullptr)
 	{
 		if (new_surface) {
-
 			new_surface = false;
-
 			LOGI("VidExtFuncGLSwapBuf: New surface has been detected");
 
-			if (!(surface = eglCreateWindowSurface(display, config, (EGLNativeWindowType)native_window, windowAttribList))) {
-				LOGE("eglCreateWindowSurface() returned error %d", eglGetError());
-				return M64ERR_INVALID_STATE;
-			}
+			if (g_egl_initialized && context != EGL_NO_CONTEXT) {
+				if (!(surface = eglCreateWindowSurface(display, config, (EGLNativeWindowType)native_window, windowAttribList))) {
+					LOGE("eglCreateWindowSurface() returned error %d", eglGetError());
+					// Non-fatal, might be Vulkan
+				} else {
+					// This first eglMakeCurrent is needed for badly behaving GPU drivers
+					eglMakeCurrent(display, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
 
-			// This first eglMakeCurrent is needed for badly behaving GPU drivers
-			if (!eglMakeCurrent(display, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT)) {
-				LOGE("eglMakeCurrent() returned error %d", eglGetError());
-				return M64ERR_INVALID_STATE;
+					if (!eglMakeCurrent(display, surface, surface, context)) {
+						LOGE("eglMakeCurrent() returned error %d", eglGetError());
+					}
+					eglSwapInterval(display, vsync);
+				}
 			}
-
-			if (!eglMakeCurrent(display, surface, surface, context)) {
-				LOGE("eglMakeCurrent() returned error %d", eglGetError());
-				return M64ERR_INVALID_STATE;
-			}
-
-			eglSwapInterval(display, vsync);
 		}
 
-		if(surface != EGL_NO_SURFACE)
+		if(g_egl_initialized && surface != EGL_NO_SURFACE)
 		{
 			if (vsync != oldVsync) {
 				eglSwapInterval(display, vsync);
@@ -440,6 +448,10 @@ extern "C" DECLSPEC void setNativeWindow(JNIEnv* env, jobject native_surface)
 
 	LOGI("setNativeWindow: New surface has been set");
 
+	if (native_window != nullptr) {
+		ANativeWindow_release(native_window);
+	}
+
 	native_window = ANativeWindow_fromSurface(env, native_surface);
 	new_surface = true;
 }
@@ -466,6 +478,14 @@ extern "C" DECLSPEC void emuDestroySurface(void)
 
 	std::unique_lock<std::mutex> guard(nativeWindowAccess);
 
+	if (g_egl_initialized && display != EGL_NO_DISPLAY) {
+		eglMakeCurrent(display, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
+		if (surface != EGL_NO_SURFACE) {
+			eglDestroySurface(display, surface);
+		}
+	}
+	surface = EGL_NO_SURFACE;
+
 	if(native_window != nullptr)
 	{
 		ANativeWindow_release(native_window);
@@ -474,10 +494,6 @@ extern "C" DECLSPEC void emuDestroySurface(void)
 		//sleep for 50 ms to allow all queued swap buffer calls to finish
 		usleep(50000);
 	}
-
-    if (display != EGL_NO_DISPLAY && surface != EGL_NO_SURFACE)
-        eglDestroySurface(display, surface);
-    surface = EGL_NO_SURFACE;
 
 	native_window = nullptr;
 }

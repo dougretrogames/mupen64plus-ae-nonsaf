@@ -12,22 +12,10 @@ option(GL_PROFILE "Set to ON to turn on GL profiling" ${GL_PROFILE})
 
 # run script to generate Revision.h
 set(PATH_REVISION "${CMAKE_CURRENT_BINARY_DIR}/inc/Revision.h")
-find_package(Git)
-if(GIT_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/../.git")
-	add_custom_command(
-		OUTPUT ${PATH_REVISION}
-		COMMAND
-		env OUTPUT=${PATH_REVISION} ${CMAKE_SOURCE_DIR}/getRevision.sh
-		COMMENT "Generate Git version"
-	)
-else(GIT_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/../.git")
-	add_custom_command(
-		OUTPUT ${PATH_REVISION}
-		COMMAND
-		env OUTPUT=${PATH_REVISION} ${CMAKE_SOURCE_DIR}/getRevision.sh --nogit
-		COMMENT "Generate version"
-	)
-endif(GIT_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/../.git")
+if (NOT EXISTS ${PATH_REVISION})
+    file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/inc")
+    file(WRITE ${PATH_REVISION} "#define PLUGIN_REVISION \"\"\n#define PLUGIN_REVISION_W L\"\"\n")
+endif()
 set_property(SOURCE ${PATH_REVISION} PROPERTY SKIP_AUTOGEN ON)
 include_directories("${CMAKE_CURRENT_BINARY_DIR}/inc")
 

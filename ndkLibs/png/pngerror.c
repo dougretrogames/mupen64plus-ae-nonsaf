@@ -707,11 +707,49 @@ png_free_jmpbuf(png_structrp png_ptr)
  * function is used by default, or if the program supplies NULL for the
  * error function pointer in png_set_error_fn().
  */
+#include <stdio.h>
+#ifdef ANDROID
+#include <android/log.h>
+#define stderr ((FILE*)2)
+#endif
+
 static PNG_FUNCTION(void /* PRIVATE */,
 png_default_error,(png_const_structrp png_ptr, png_const_charp error_message),
     PNG_NORETURN)
 {
 #ifdef PNG_CONSOLE_IO_SUPPORTED
+#ifdef ANDROID
+   if (error_message != NULL && *error_message == PNG_LITERAL_SHARP)
+   {
+      /* Strip "#nnnn " from beginning of error message. */
+      int offset;
+      char error_number[16];
+      for (offset = 0; offset<15; offset++)
+      {
+         error_number[offset] = error_message[offset + 1];
+         if (error_message[offset] == ' ')
+            break;
+      }
+
+      if ((offset > 1) && (offset < 15))
+      {
+         error_number[offset - 1] = '\0';
+         __android_log_print(ANDROID_LOG_ERROR, "libpng", "libpng error no. %s: %s",
+             error_number, error_message + offset + 1);
+      }
+
+      else
+      {
+         __android_log_print(ANDROID_LOG_ERROR, "libpng", "libpng error: %s, offset=%d",
+             error_message, offset);
+      }
+   }
+   else
+   {
+      __android_log_print(ANDROID_LOG_ERROR, "libpng", "libpng error: %s", error_message ? error_message :
+         "undefined");
+   }
+#else
 #ifdef PNG_ERROR_NUMBERS_SUPPORTED
    /* Check on NULL only added in 1.5.4 */
    if (error_message != NULL && *error_message == PNG_LITERAL_SHARP)
@@ -751,6 +789,7 @@ png_default_error,(png_const_structrp png_ptr, png_const_charp error_message),
 #else
    PNG_UNUSED(error_message) /* Make compiler happy */
 #endif
+#endif
    png_longjmp(png_ptr, 1);
 }
 
@@ -785,6 +824,36 @@ static void /* PRIVATE */
 png_default_warning(png_const_structrp png_ptr, png_const_charp warning_message)
 {
 #ifdef PNG_CONSOLE_IO_SUPPORTED
+#ifdef ANDROID
+   if (*warning_message == PNG_LITERAL_SHARP)
+   {
+      int offset;
+      char warning_number[16];
+      for (offset = 0; offset < 15; offset++)
+      {
+         warning_number[offset] = warning_message[offset + 1];
+         if (warning_message[offset] == ' ')
+            break;
+      }
+
+      if ((offset > 1) && (offset < 15))
+      {
+         warning_number[offset + 1] = '\0';
+         __android_log_print(ANDROID_LOG_WARN, "libpng", "libpng warning no. %s: %s",
+             warning_number, warning_message + offset);
+      }
+
+      else
+      {
+         __android_log_print(ANDROID_LOG_WARN, "libpng", "libpng warning: %s",
+             warning_message);
+      }
+   }
+   else
+   {
+      __android_log_print(ANDROID_LOG_WARN, "libpng", "libpng warning: %s", warning_message);
+   }
+#else
 #  ifdef PNG_ERROR_NUMBERS_SUPPORTED
    if (*warning_message == PNG_LITERAL_SHARP)
    {
@@ -812,13 +881,9 @@ png_default_warning(png_const_structrp png_ptr, png_const_charp warning_message)
          fprintf(stderr, PNG_STRING_NEWLINE);
       }
    }
-   else
-#  endif
-
-   {
-      fprintf(stderr, "libpng warning: %s", warning_message);
-      fprintf(stderr, PNG_STRING_NEWLINE);
    }
+#endif
+#endif
 #else
    PNG_UNUSED(warning_message) /* Make compiler happy */
 #endif

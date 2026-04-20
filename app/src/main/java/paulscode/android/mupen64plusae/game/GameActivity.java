@@ -1043,6 +1043,15 @@ public class GameActivity extends AppCompatActivity implements PromptConfirmList
         if (mGlobalPrefs.displayOrientation != -1) {
             setRequestedOrientation( mGlobalPrefs.displayOrientation );
         }
+
+        // Proactive gamepad scan for auto-mapping
+        int[] deviceIds = InputDevice.getDeviceIds();
+        for (int deviceId : deviceIds) {
+            InputDevice device = InputDevice.getDevice(deviceId);
+            if (device != null && (device.getSources() & InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD) {
+                checkForNewController(deviceId);
+            }
+        }
     }
 
     @Override
@@ -1310,9 +1319,7 @@ public class GameActivity extends AppCompatActivity implements PromptConfirmList
                 for (int index = startIndex; index < mGamePrefs.controllerProfile.length; ++index) {
                     if (!mGamePrefs.playerMap.isPlayerAvailable(index+1) && isControllerPlugged[index]) {
 
-                        if (!mGlobalPrefs.allEmulatedControllersPlugged) {
-                            mCoreFragment.updateControllerConfig(index, false, mGamePrefs.getPakType(index+1));
-                        }
+                        mCoreFragment.updateControllerConfig(index, false, mGamePrefs.getPakType(index+1));
                         isControllerPlugged[index] = false;
 
                         Log.i(TAG, "controller " + index + " was unplugged");
@@ -1361,9 +1368,7 @@ public class GameActivity extends AppCompatActivity implements PromptConfirmList
         int player = mGamePrefs.playerMap.reconnectDevice( hardwareId );
 
         if (player > 0 && !isControllerPlugged[player-1] ) {
-            if (!mGlobalPrefs.allEmulatedControllersPlugged) {
-                mCoreFragment.updateControllerConfig(player - 1, true, mGamePrefs.getPakType(player));
-            }
+            mCoreFragment.updateControllerConfig(player - 1, true, mGamePrefs.getPakType(player));
             isControllerPlugged[player-1] = true;
         }
     }

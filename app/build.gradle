@@ -22,9 +22,25 @@ android {
     defaultConfig {
         applicationId = "org.mupen64plusae.v3.alpha"
     }
+    signingConfigs {
+        release {
+            // Insira os dados da sua chave abaixo para assinar o APK final
+            // storeFile file('sua_chave.jks')
+            // storePassword 'sua_senha'
+            // keyAlias 'seu_alias'
+            // keyPassword 'sua_senha_da_chave'
+            
+            enableV1Signing true
+            enableV2Signing true
+            enableV3Signing true
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             ndk {

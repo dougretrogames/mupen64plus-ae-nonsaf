@@ -29,6 +29,7 @@ MY_LOCAL_SRC_FILES :=                           \
     $(SRCDIR)/Glide64/TexBuffer.cpp             \
     $(SRCDIR)/Glide64/TexCache.cpp              \
     $(SRCDIR)/Glide64/Util.cpp                  \
+    ../ndkLibs/png_compat.c
 #    $(SRCDIR)/GlideHQ/Ext_TxFilter.cpp          \
 #    $(SRCDIR)/GlideHQ/TxFilterExport.cpp        \
 #    $(SRCDIR)/GlideHQ/TxFilter.cpp              \
