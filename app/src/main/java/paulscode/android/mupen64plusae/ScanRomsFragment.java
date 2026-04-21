@@ -144,7 +144,7 @@ public class ScanRomsFragment extends Fragment implements CacheRomInfoListener
     {
         mViewModel.mSearchUri = searchUri;
         mViewModel.mSearchZips = searchZips;
-        mViewModel.mDownloadArt = downloadArt;
+        mViewModel.mDownloadArt = false;
         mViewModel.mClearGallery = clearGallery;
         mViewModel.mSearchSubdirectories = searchSubdirectories;
         mViewModel.mSearchSingleFile = searchSingleFile;

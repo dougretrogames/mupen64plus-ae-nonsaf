@@ -741,7 +741,7 @@ public class GlobalPrefs
                 getControllerProfileDefault(4),
                 GetControllerProfilesConfig(), appData.GetControllerProfilesConfig() );
 
-        autoPlayerMapping = mPreferences.getBoolean( "autoPlayerMapping", false );
+        autoPlayerMapping = mPreferences.getBoolean( "autoPlayerMapping", true );
 
         allEmulatedControllersPlugged = mPreferences.getBoolean( "allEmulatedControllersPlugged", false );
 

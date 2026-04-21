@@ -35,7 +35,7 @@ import paulscode.android.mupen64plusae.input.provider.AbstractProvider;
 public class PlayerMap extends SerializableMap
 {
     /** Flag indicating whether hardware filtering is enabled. */
-    private boolean mDisabled = true;
+    private boolean mDisabled = false;
 
     private boolean mAutoMapping = false;
     
@@ -76,11 +76,20 @@ public class PlayerMap extends SerializableMap
         super();
 
         mAutoMapping = autoPlayerMapping;
+
+        if (mAutoMapping) {
+            mDisabled = false;
+        }
+
         deserialize( serializedMap );
     }
     
     public boolean testHardware( int hardwareId, int player )
     {
+        if (mAutoMapping) {
+            return mMap.get( hardwareId, 0 ) == player;
+        }
+
         return mDisabled || (getNumberOfMappedPlayers() == 0 && player == 1) ||
                 mMap.get( hardwareId, 0 ) == player;
     }
@@ -131,8 +140,10 @@ public class PlayerMap extends SerializableMap
     public int reconnectDevice( int hardwareId )
     {
         // If the device is not mapped to any player...
-        if( mMap.get( hardwareId ) == 0 && AbstractProvider.isHardwareAvailable( hardwareId ) )
+        if( AbstractProvider.isHardwareAvailable( hardwareId ) )
         {
+            int currentPlayer = mMap.get( hardwareId );
+
             // ...and if the device was previously mapped to a player...
             String uniqueName = AbstractProvider.getUniqueName( hardwareId );
             Collection<Integer> ids = deviceNameToId.get( uniqueName );
@@ -157,15 +168,20 @@ public class PlayerMap extends SerializableMap
                         }
                     }
                 }
-            //If not previously mapped and auto mapping is enabled
-            } else if (mAutoMapping) {
-                int nextMappablePlayer = getNextAvailablePlayer();
+            }
 
-                if (nextMappablePlayer != -1) {
-                    map( hardwareId, nextMappablePlayer );
+            //If auto mapping is enabled and we either have no mapping or we want to try assigning a new slot
+            if (mAutoMapping) {
+                // If this hardware is already mapped to a player, we still check if there's an available slot
+                // This is a workaround for devices with identical hardware IDs
+                if (currentPlayer == 0) {
+                    int nextMappablePlayer = getNextAvailablePlayer();
+                    if (nextMappablePlayer != -1) {
+                        map( hardwareId, nextMappablePlayer );
+                        return nextMappablePlayer;
+                    }
                 }
-
-                return nextMappablePlayer;
+                return currentPlayer > 0 ? currentPlayer : -1;
              }
         }
         
@@ -174,9 +190,15 @@ public class PlayerMap extends SerializableMap
     
     public boolean isPlayerAvailable(int player )
     {
-        int indexValue = mMap.indexOfValue( player );
-
-        return indexValue >= 0 && AbstractProvider.isHardwareAvailable(mMap.keyAt(indexValue));
+        for( int i = 0; i < mMap.size(); i++ )
+        {
+            if( mMap.valueAt( i ) == player )
+            {
+                if( AbstractProvider.isHardwareAvailable( mMap.keyAt( i ) ) )
+                    return true;
+            }
+        }
+        return false;
     }
 
     public int getNumberOfMappedPlayers()
@@ -199,6 +221,7 @@ public class PlayerMap extends SerializableMap
     {
         if( player > 0 && player < 5 )
         {
+            unmapPlayer( player );
             unmap( hardwareId );
             mMap.put( hardwareId, player );
             

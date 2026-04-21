@@ -212,7 +212,7 @@ public class GalleryActivity extends AppCompatActivity implements GameSidebarAct
 
                         if (searchUri != null)
                         {
-                            refreshRoms(searchUri, searchZips, downloadArt, clearGallery, searchSubdirectories, searchSingleFile);
+                            refreshRoms(searchUri, searchZips, false, clearGallery, searchSubdirectories, searchSingleFile);
                         }
                     }
                 }
@@ -620,7 +620,7 @@ public class GalleryActivity extends AppCompatActivity implements GameSidebarAct
 
         // A game that did not exist in the gallery was requested to be searched for
         if (!TextUtils.isEmpty(mScanForGameOnResume)) {
-            mCacheRomInfoFragment.refreshRoms(mScanForGameOnResume, true, true, false, false,
+            mCacheRomInfoFragment.refreshRoms(mScanForGameOnResume, true, false, false, false,
                     true, mAppData, mGlobalPrefs);
         }
     }
@@ -944,7 +944,7 @@ public class GalleryActivity extends AppCompatActivity implements GameSidebarAct
             launchGameActivity( item.romUri,
                     item.zipUri,
                     item.md5, item.crc, item.headerName,
-                    item.countryCode.getValue(), item.artPath, item.goodName, item.displayName, false,
+                    item.countryCode.getValue(), item.artPath, item.goodName, item.displayName, true,
                     false, false);
         } else if (menuItem.getItemId() == R.id.menuItem_start) {
             launchGameActivity(item.romUri,
@@ -1030,6 +1030,7 @@ public class GalleryActivity extends AppCompatActivity implements GameSidebarAct
 
         // Restore the menu
         mGameSidebar.setActionHandler(GalleryActivity.this, R.menu.gallery_game_drawer);
+        mGameSidebar.getMenu().removeItem(R.id.menuItem_resume);
 
         if (mAppData.isAndroidTv)
         {
@@ -1062,7 +1063,7 @@ public class GalleryActivity extends AppCompatActivity implements GameSidebarAct
         // Don't let the activity sleep in the middle of scan
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON );
 
-        mCacheRomInfoFragment.refreshRoms(searchUri, searchZips, downloadArt, clearGallery, searchSubdirectories,
+        mCacheRomInfoFragment.refreshRoms(searchUri, searchZips, false, clearGallery, searchSubdirectories,
                 searchSingleFile, mAppData, mGlobalPrefs);
     }
 

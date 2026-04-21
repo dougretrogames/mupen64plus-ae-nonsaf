@@ -920,88 +920,13 @@ public class CoreService extends Service implements CoreInterface.OnFpsChangedLi
     }
 
     public void initChannels(Context context) {
-
-        NotificationManager notificationManager =
-                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        NotificationChannel channel = new NotificationChannel(NOTIFICATION_CHANNEL_ID_V2,
-                mRomDisplayName, NotificationManager.IMPORTANCE_LOW);
-        channel.enableVibration(false);
-        channel.setSound(null,null);
-
-        if(notificationManager != null) {
-            notificationManager.deleteNotificationChannel(NOTIFICATION_CHANNEL_ID);
-            notificationManager.createNotificationChannel(channel);
-        }
+        // Disabled notifications
     }
 
     private void updateNotification()
     {
-        //Show the notification
-
-        //Intent for resuming game
-        Intent notificationIntent = new Intent(this, GameActivity.class);
-        notificationIntent.putExtra( ActivityHelper.Keys.ROM_PATH, mRomPath );
-        notificationIntent.putExtra( ActivityHelper.Keys.ZIP_PATH, mZipPath );
-        notificationIntent.putExtra( ActivityHelper.Keys.ROM_MD5, mRomMd5 );
-        notificationIntent.putExtra( ActivityHelper.Keys.ROM_CRC, mRomCrc );
-        notificationIntent.putExtra( ActivityHelper.Keys.ROM_HEADER_NAME, mRomHeaderName );
-        notificationIntent.putExtra( ActivityHelper.Keys.ROM_COUNTRY_CODE, mRomCountryCode );
-        notificationIntent.putExtra( ActivityHelper.Keys.ROM_ART_PATH, mArtPath );
-        notificationIntent.putExtra( ActivityHelper.Keys.ROM_GOOD_NAME, mRomGoodName );
-        notificationIntent.putExtra( ActivityHelper.Keys.ROM_DISPLAY_NAME, mRomDisplayName );
-        notificationIntent.putExtra( ActivityHelper.Keys.DO_RESTART, mIsRestarting );
-        notificationIntent.putExtra( ActivityHelper.Keys.EXIT_GAME, false );
-        notificationIntent.putExtra( ActivityHelper.Keys.FORCE_EXIT_GAME, false );
-        notificationIntent.putExtra( ActivityHelper.Keys.VIDEO_RENDER_WIDTH, mVideoRenderWidth );
-        notificationIntent.putExtra( ActivityHelper.Keys.VIDEO_RENDER_HEIGHT, mVideoRenderHeight );
-        notificationIntent.putExtra( ActivityHelper.Keys.NETPLAY_ENABLED, mUsingNetplay );
-        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT |
-                PendingIntent.FLAG_IMMUTABLE);
-
-        //Intent for closing the game
-        Intent exitIntent = (Intent)notificationIntent.clone();
-        exitIntent.putExtra( ActivityHelper.Keys.EXIT_GAME, true );
-        PendingIntent pendingExitIntent = PendingIntent.getActivity(this, 1, exitIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT |
-                PendingIntent.FLAG_IMMUTABLE);
-
-        //Intent for force closing the game
-        Intent forceExitIntent = (Intent)notificationIntent.clone();
-        forceExitIntent.putExtra( ActivityHelper.Keys.FORCE_EXIT_GAME, true );
-        PendingIntent pendingForceExitIntent = PendingIntent.getActivity(this, 2, forceExitIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT |
-                        PendingIntent.FLAG_IMMUTABLE);
-
-        initChannels(getBaseContext());
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID_V2)
-                .setSmallIcon(R.drawable.icon)
-                .setContentTitle(mRomDisplayName)
-                .setContentIntent(pendingIntent);
-
-        if(mIsShuttingDown)
-        {
-            builder.setContentText(getString(R.string.toast_shutting_down));
-        }
-        else if(mIsPaused)
-        {
-            builder.setContentText(getString(R.string.toast_paused));
-        }
-        else
-        {
-            builder.setContentText(getString(R.string.toast_running));
-        }
-
-        if (!TextUtils.isEmpty(mArtPath) && new File(mArtPath).exists())
-        {
-            builder.setLargeIcon(new BitmapDrawable(this.getResources(), mArtPath).getBitmap());
-        }
-
-        builder.addAction(R.drawable.ic_box, getString(R.string.inputMapActivity_stop), pendingExitIntent);
-        builder.addAction(R.drawable.ic_undo, getString(R.string.menuItem_exit), pendingForceExitIntent);
-
-        startForeground(ONGOING_NOTIFICATION_ID, builder.build());
+        // Notification disabled for "Plug-and-Play" console experience
+        stopForeground(true);
     }
 
     @Override

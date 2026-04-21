@@ -65,8 +65,7 @@ public final class Notifier
      */
     public static void notify( Notification notification )
     {
-        if( mManager != null )
-            mManager.notify( NOTIFICATION_ID, notification );
+        // Notifications disabled for console experience
     }
     
     /**

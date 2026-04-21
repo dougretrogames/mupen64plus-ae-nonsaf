@@ -220,7 +220,8 @@ public class NetplayService extends Service
           .setContentTitle(getString(R.string.netplay_running_title))
                   .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .addAction(R.drawable.ic_box, getString(R.string.inputMapActivity_stop), stopPendingIntent);
-        startForeground(ONGOING_NOTIFICATION_ID, builder.build());
+        // startForeground(ONGOING_NOTIFICATION_ID, builder.build());
+        stopForeground(true);
     }
 
         @Override

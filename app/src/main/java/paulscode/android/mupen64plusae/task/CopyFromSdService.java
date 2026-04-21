@@ -226,7 +226,8 @@ public class CopyFromSdService extends Service
           .setContentTitle(getString(R.string.importExportActivity_importDialogTitle))
           .setContentText(getString(R.string.toast_pleaseWait))
           .setContentIntent(pendingIntent);
-      startForeground(ONGOING_NOTIFICATION_ID, builder.build());
+      // startForeground(ONGOING_NOTIFICATION_ID, builder.build());
+      stopForeground(true);
     }
 
     @Override

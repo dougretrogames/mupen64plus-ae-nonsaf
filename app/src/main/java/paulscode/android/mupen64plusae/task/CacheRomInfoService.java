@@ -294,7 +294,8 @@ public class CacheRomInfoService extends Service
           .setContentTitle(getString(R.string.scanning_title))
           .setContentText(getString(R.string.toast_pleaseWait))
           .setContentIntent(pendingIntent);
-      startForeground(ONGOING_NOTIFICATION_ID, builder.build());
+      // startForeground(ONGOING_NOTIFICATION_ID, builder.build());
+      stopForeground(true);
     }
 
     @Override

@@ -6,13 +6,14 @@ Este é um fork do **Mupen64Plus, Android Edition (AE)**, focado em restaurar a 
 
 Este projeto foi modificado com os seguintes objetivos principais:
 
-1.  **Independência de SAF (Storage Access Framework)**: Removida a obrigatoriedade de uso do SAF, permitindo que frontends e o próprio emulador acessem os arquivos de ROMs de forma direta, facilitando a integração com aplicativos externos de gerenciamento de jogos.
+1.  **Independência de SAF (Storage Access Framework)**: Removida a obrigatoriedade de uso do SAF, permitindo que frontends e o próprio emulador acessem os arquivos de ROMs de forma direta através das permissões padrão de armazenamento, facilitando a integração com aplicativos externos de gerenciamento de jogos.
 2.  **Compatibilidade Retroativa**: O nível mínimo de SDK foi reduzido para **Android 5.0 (API 21)**, permitindo que dispositivos mais antigos voltem a rodar a versão mais recente do emulador.
 3.  **Modernização do Build**: O projeto foi migrado para utilizar o **JDK 17**, alinhando-se com as ferramentas modernas de desenvolvimento Android (AGP 8+), mantendo o desugaring para compatibilidade com versões anteriores.
 4.  **Assinatura Completa**: Builds gerados com suporte a assinaturas **V1, V2 e V3**, garantindo que o APK possa ser instalado em qualquer versão do Android suportada.
 5.  **Tradução Integral**: Sincronização e complementação das traduções para **Português (PT)**, **Português Brasileiro (PT-BR)** e **Espanhol (ES)**, garantindo que todas as 845 strings do projeto original estejam devidamente localizadas.
 6.  **Compatibilidade Vulkan (Bypass de Tela Preta)**: Refatoração da linkagem EGL/GLES para permitir a inicialização de plugins modernos (como o ParaLLEl) em dispositivos que exigem gestão estrita da `ANativeWindow`, eliminando o erro de "tela preta com som".
-7.  **Multijogador Automatizado (Plug-and-Play)**: Ativação por padrão do mapeamento automático de controles e implementação de uma varredura proativa de gamepads ao iniciar o jogo. O emulador agora detecta e conecta controles em slots 2-4 instantaneamente, sem necessidade de configuração manual ou interação do usuário com menus.
+7.  **Multijogador Automatizado (Plug-and-Play)**: Ativação por padrão do mapeamento automático de controles com lógica de atribuição exclusiva. O emulador agora diferencia múltiplos controles (mesmo de modelos idênticos) e os distribui automaticamente pelos slots P1, P2, P3 e P4. A reconexão foi aprimorada para preservar a ordem dos jogadores sem intervenção manual.
+8.  **Experiência de Console Simplificada**: Remoção de distrações para uso em arcades e frontends. O sistema agora força o início dos jogos sempre pela tela de título (desativando o auto-resume), desabilita o download automático de capas e **remove todas as notificações da barra de status**. O comportamento de suspensão padrão do Android é mantido (permitindo minimizar o jogo), mas o encerramento total ocorre apenas quando o aplicativo é fechado manualmente pelo usuário ou pelo sistema, garantindo uma inicialização limpa a cada novo carregamento.
 
 ## Repositório Oficial
 
