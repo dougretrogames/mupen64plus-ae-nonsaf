@@ -24,7 +24,7 @@
   <string name="actionResetUserPrefs_popupMessage">¿Restaurar todas las preferencias a las predeterminadas?</string>
   <string name="actionResetUserPrefs_summary">Restaurar configuracion de fabrica global </string>
   <string name="actionResetUserPrefs_title">Predeterminados</string>
-  <string name="actionResume_summary">Reanudar desde el último guardado automático\n&lt;small&gt;No se recomienda si usa Trucos&lt;/small&gt;</string>
+  <string name="actionResume_summary">Reanudar desde el último guardado automático\n<small>No se recomienda si usa Trucos</small></string>
   <string name="actionResume_title">Reanudar</string>
   <string name="actionSearchRoms">Buscar ROMs</string>
   <string name="actionSetGameCoverArt_summary">Cambiar portada del juego an una imagen personalizada</string>
@@ -197,8 +197,8 @@
   <string name="displayResolution_entryNative">Nativo (mejor calidad)</string>
   <string name="displayResolution_title">Resolución renderendizada</string>
   <string name="displayScaling_entryOriginal">Original\n</string>
-  <string name="displayScaling_entryStretch">Estirar\n&lt;small&gt;Pantalla completa, sin barras negras (añade distorsión)&lt;/small&gt;</string>
-  <string name="displayScaling_entryStretch169">Estirar 16:9\n&lt;small&gt;Cambia la relación de aspecto a 16:9 (añade distorsión)&lt;/small&gt;</string>
+  <string name="displayScaling_entryStretch">Estirar\n<small>Pantalla completa, sin barras negras (añade distorsión)</small></string>
+  <string name="displayScaling_entryStretch169">Estirar 16:9\n<small>Cambia la relación de aspecto a 16:9 (añade distorsión)</small></string>
   <string name="displayScaling_title">Tamaño de la pantalla</string>
   <string name="displayZoomDefault_summary">Desactive esta opción para especificar un zoom personalizado para este juego</string>
   <string name="displayZoomDefault_title">Utilizar zoom predeterminado</string>
@@ -835,12 +835,12 @@
   <string name="videoHardwareType_entryStandard">Perfil estándar</string>
   <string name="videoHardwareType_entryT">Perfil T</string>
   <string name="videoHardwareType_title">Reducción del parpadeo</string>
-  <string name="videoPlugin_entryAngrylion">angrylion-rdp-plus\n&lt;small&gt;(renderizador de software angrylion-rdp-plus)&lt;/small&gt;</string>
+  <string name="videoPlugin_entryAngrylion">angrylion-rdp-plus\n<small>(renderizador de software angrylion-rdp-plus)</small></string>
   <string name="videoPlugin_entryGlide64">glide64\n</string>
-  <string name="videoPlugin_entryGliden64">gliden64\n&lt;small&gt;(GLideN64 beta)&lt;/small&gt;</string>
+  <string name="videoPlugin_entryGliden64">gliden64\n<small>(GLideN64 beta)</small></string>
   <string name="videoPlugin_entryGln64">gln64\n</string>
   <string name="videoPlugin_entryNone">Ninguno (video deshabilitado)</string>
-  <string name="videoPlugin_entryParallel">Parallel\n&lt;small&gt;(renderizador vulkan Parallel)&lt;/small&gt;</string>
+  <string name="videoPlugin_entryParallel">Parallel\n<small>(renderizador vulkan Parallel)</small></string>
   <string name="videoPlugin_entryRice">rice\</string>
   <string name="videoPlugin_title">Plugin de video</string>
   <string name="videoPolygonOffset_summary">Reducción de parpadeo parcial personalizada</string>
