@@ -1270,6 +1270,25 @@ public class GalleryActivity extends AppCompatActivity implements GameSidebarAct
         mDrawerLayout.openDrawer(GravityCompat.START);
     }
 
+    @Override
+    public void onBackPressed() {
+        // If the drawer is open, close it first
+        if (mDrawerLayout != null && mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            // Show exit confirmation dialog
+            new androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle(R.string.menuItem_exit)
+                    .setMessage(R.string.confirm_exit_app)
+                    .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                        // Exit the app completely
+                        finishAffinity();
+                    })
+                    .setNegativeButton(android.R.string.no, null)
+                    .show();
+        }
+    }
+
     public void onFabRefreshRomsClick(View view)
     {
         Intent intent = new Intent(this, ScanRomsActivity.class);

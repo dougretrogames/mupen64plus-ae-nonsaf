@@ -14,6 +14,7 @@ Este projeto foi modificado com os seguintes objetivos principais:
 6.  **Compatibilidade Vulkan (Bypass de Tela Preta)**: Refatoração da linkagem EGL/GLES para permitir a inicialização de plugins modernos (como o ParaLLEl) em dispositivos que exigem gestão estrita da `ANativeWindow`, eliminando o erro de "tela preta com som".
 7.  **Multijogador Automatizado (Plug-and-Play)**: Ativação por padrão do mapeamento automático de controles com lógica de atribuição exclusiva. O emulador agora diferencia múltiplos controles (mesmo de modelos idênticos) e os distribui automaticamente pelos slots P1, P2, P3 e P4. A reconexão foi aprimorada para preservar a ordem dos jogadores sem intervenção manual.
 8.  **Experiência de Console Simplificada**: Remoção de distrações para uso em arcades e frontends. O sistema agora força o início dos jogos sempre pela tela de título (desativando o auto-resume), desabilita o download automático de capas e **remove todas as notificações da barra de status**. O comportamento de suspensão padrão do Android é mantido (permitindo minimizar o jogo), mas o encerramento total ocorre apenas quando o aplicativo é fechado manualmente pelo usuário ou pelo sistema, garantindo uma inicialização limpa a cada novo carregamento.
+9.  **Confirmação de Saída**: Implementação de um diálogo de confirmação ao pressionar o botão "Voltar" na tela inicial. Isso evita o fechamento acidental do emulador e garante que o usuário realmente deseja encerrar a aplicação, seguindo o padrão de interface de consoles dedicados.
 
 ## Repositório Oficial
 

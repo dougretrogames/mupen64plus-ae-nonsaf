@@ -526,6 +526,7 @@
   <string name="menuItem_emulationProfiles">Perfis de emulação</string>
   <string name="menuItem_enableFramelimiter">Sincronizar áudio</string>
   <string name="menuItem_exit">Sair</string>
+  <string name="confirm_exit_app">Deseja realmente sair da aplicação?</string>
   <string name="menuItem_faq">Dúvidas frequentes</string>
   <string name="menuItem_fileLoad">Carregar do arquivo…</string>
   <string name="menuItem_fileLoadAutoSave">Carregar do salvamento automático…</string>
