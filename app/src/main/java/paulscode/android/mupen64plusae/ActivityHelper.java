@@ -114,7 +114,7 @@ public class ActivityHelper
         //@formatter:on
     }
 
-    static final String coreServiceProcessName = "paulscode.android.mupen64plusae.GameActivity";
+    static final String coreServiceProcessName = ":EmulationProcess";
 
     static void launchUri( Context context, int resId )
     {
@@ -432,6 +432,8 @@ public class ActivityHelper
     }
 
     static boolean isServiceRunning(Context context, String processName) {
+        String packageName = context.getPackageName();
+        String actualProcessName = processName.startsWith(":") ? packageName + processName : processName;
         ActivityManager manager = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
 
         List<ActivityManager.RunningAppProcessInfo> processInfos = null;
@@ -441,7 +443,7 @@ public class ActivityHelper
 
         if (processInfos != null) {
             for (ActivityManager.RunningAppProcessInfo process : processInfos){
-                if(processName.equals(process.processName)) {
+                if(actualProcessName.equals(process.processName)) {
                     return true;
                 }
             }
