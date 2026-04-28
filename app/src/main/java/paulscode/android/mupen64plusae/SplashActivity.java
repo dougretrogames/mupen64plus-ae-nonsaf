@@ -1,6 +1,7 @@
 package paulscode.android.mupen64plusae;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -126,7 +127,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     PERMISSION_REQUEST);
         } else {
-            checkExtractAssetsOrCleanup();
+            handleFirstRun();
         }
     }
 
@@ -163,6 +164,49 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
         }
     }
 
+    private void handleFirstRun() {
+        if (mAppData.getBoolean(AppData.KEY_FIRST_RUN, true)) {
+            showAspectRatioDialog();
+        } else {
+            checkExtractAssetsOrCleanup();
+        }
+    }
+
+    private void showAspectRatioDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.firstRun_aspectRatio_title)
+                .setMessage(R.string.firstRun_aspectRatio_message)
+                .setPositiveButton(R.string.firstRun_aspectRatio_full, (d, w) -> {
+                    mAppData.putString("displayScaling", "stretch169");
+                    showEmulationProfileDialog();
+                })
+                .setNegativeButton(R.string.firstRun_aspectRatio_original, (d, w) -> {
+                    mAppData.putString("displayScaling", "original");
+                    showEmulationProfileDialog();
+                })
+                .setCancelable(false)
+                .show();
+    }
+
+    private void showEmulationProfileDialog() {
+        String fastText = getString(R.string.firstRun_emulationProfile_fast, getString(R.string.firstRun_speed));
+        String accurateText = getString(R.string.firstRun_emulationProfile_accurate, getString(R.string.firstRun_quality));
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.firstRun_emulationProfile_title)
+                .setMessage(R.string.firstRun_emulationProfile_message)
+                .setPositiveButton(fastText, (d, w) -> {
+                    mAppData.putString("emulationProfileDefault", "Glide64-Fast");
+                    checkExtractAssetsOrCleanup();
+                })
+                .setNegativeButton(accurateText, (d, w) -> {
+                    mAppData.putString("emulationProfileDefault", "Glide64-Accurate");
+                    checkExtractAssetsOrCleanup();
+                })
+                .setCancelable(false)
+                .show();
+    }
+
     private void checkExtractAssetsOrCleanup() {
         if (mAppData.getAssetCheckNeeded() || mAppData.getAppVersion() != mAppData.appVersionCode ||
                 !ExtractAssetsOrCleanupTask.areAllAssetsValid(PreferenceManager.getDefaultSharedPreferences(this),
@@ -173,9 +217,47 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
             final Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(extractAssetsTaskLauncher, SPLASH_DELAY);
         } else {
+            proceedNext();
+        }
+    }
+
+    private void proceedNext() {
+        if (mAppData.getBoolean(AppData.KEY_FIRST_RUN, true)) {
+            showClosingProgressDialog();
+        } else {
             ActivityHelper.startGalleryActivity(this, getIntent());
             finish();
         }
+    }
+
+    private void showClosingProgressDialog() {
+        ProgressDialog closingDialog = new ProgressDialog(this);
+        closingDialog.setTitle(getString(R.string.firstRun_closing_title));
+        closingDialog.setMessage(getString(R.string.firstRun_closing_message));
+        closingDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        closingDialog.setCancelable(false);
+        closingDialog.setMax(5);
+        closingDialog.setProgress(0);
+        closingDialog.show();
+
+        final Handler handler = new Handler(Looper.getMainLooper());
+        final int[] secondsElapsed = {0};
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                secondsElapsed[0]++;
+                closingDialog.setProgress(secondsElapsed[0]);
+                if (secondsElapsed[0] < 5) {
+                    handler.postDelayed(this, 1000);
+                } else {
+                    closingDialog.dismiss();
+                    mAppData.putBoolean(AppData.KEY_FIRST_RUN, false);
+                    finish();
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                }
+            }
+        });
     }
 
     private final Runnable extractAssetsTaskLauncher = this::extractAssets;
@@ -220,10 +302,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
 
             final Handler handler = new Handler(Looper.getMainLooper());
             long delay = failures.isEmpty() ? 0 : 5000;
-            handler.postDelayed(() -> {
-                ActivityHelper.startGalleryActivity(this, getIntent());
-                finish();
-            }, delay);
+            handler.postDelayed(this::proceedNext, delay);
         });
     }
 

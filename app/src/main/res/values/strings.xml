@@ -48,6 +48,19 @@
     <string name="menuItem_pak_mem">Memory Pak</string>
     <!-- capitalize since trademark -->
     <string name="menuItem_pak_rumble">Rumble Pak</string>
+
+    <string name="firstRun_speed">(Speed)</string>
+    <string name="firstRun_quality">(Quality)</string>
+    <string name="firstRun_closing_title">Closing application…</string>
+    <string name="firstRun_closing_message">\nProceed with the RetroArch DRG installation</string>
+    <string name="firstRun_emulationProfile_title">Initial Configuration</string>
+    <string name="firstRun_emulationProfile_message">Choose the emulation profile for Glide64:</string>
+    <string name="firstRun_aspectRatio_title">Initial Configuration</string>
+    <string name="firstRun_aspectRatio_message">Choose the screen aspect ratio for games:</string>
+    <string name="firstRun_aspectRatio_full">FULL SCREEN (16:9)</string>
+    <string name="firstRun_aspectRatio_original">ORIGINAL (4:3)</string>
+    <string name="firstRun_emulationProfile_fast">Fast %1$s</string>
+    <string name="firstRun_emulationProfile_accurate">Accurate %1$s</string>
     <!-- capitalize since trademark -->
     <string name="menuItem_pak_transfer">Transfer Pak</string>
     <string name="menuItem_paks_transfer">Transfer Paks</string>

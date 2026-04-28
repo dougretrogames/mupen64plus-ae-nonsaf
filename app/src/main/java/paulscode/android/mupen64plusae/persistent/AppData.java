@@ -337,6 +337,7 @@ public class AppData
     public final String manufacturer;
     
     // Shared preferences keys
+    public static final String KEY_FIRST_RUN = "firstRun";
     private static final String KEY_FORCE_ASSET_CHECK = "assetCheck";
     private static final String KEY_APP_VERSION = "appVersion";
     private static final String CHANNEL_ID = "CHANNEL_ID";
@@ -473,34 +474,39 @@ public class AppData
         return getLong( CHANNEL_ID, -1 );
     }
 
-    private int getInt( String key, int defaultValue )
+    public int getInt( String key, int defaultValue )
     {
         return mPreferences.getInt( key, defaultValue );
     }
-    
-    private void putInt( String key, int value )
+
+    public void putInt( String key, int value )
     {
         mPreferences.edit().putInt( key, value ).apply();
     }
 
-    private boolean getBoolean( String key, boolean defaultValue )
+    public boolean getBoolean( String key, boolean defaultValue )
     {
         return mPreferences.getBoolean( key, defaultValue );
     }
 
-    private void putBoolean( String key, boolean value )
+    public void putBoolean( String key, boolean value )
     {
         mPreferences.edit().putBoolean( key, value ).apply();
     }
 
-    private long getLong( String key, long defaultValue )
+    public long getLong( String key, long defaultValue )
     {
         return mPreferences.getLong( key, defaultValue );
     }
 
-    private void putLong( String key, long value )
+    public void putLong( String key, long value )
     {
         mPreferences.edit().putLong( key, value ).apply();
+    }
+
+    public void putString( String key, String value )
+    {
+        mPreferences.edit().putString( key, value ).apply();
     }
     
     /**
