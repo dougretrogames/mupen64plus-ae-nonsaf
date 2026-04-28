@@ -159,7 +159,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                         .setCancelable(false)
                         .show();
             } else {
-                checkExtractAssetsOrCleanup();
+                handleFirstRun();
             }
         }
     }
