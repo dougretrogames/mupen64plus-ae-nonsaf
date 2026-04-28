@@ -54,6 +54,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     private AppData mAppData = null;
     private GlobalPrefs mGlobalPrefs = null;
     private AlertDialog mPermissionsNeeded = null;
+    private boolean mIsFirstRunFlow = false;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -127,7 +128,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                     new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     PERMISSION_REQUEST);
         } else {
-            handleFirstRun();
+            checkExtractAssetsOrCleanup();
         }
     }
 
@@ -159,16 +160,19 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                         .setCancelable(false)
                         .show();
             } else {
-                handleFirstRun();
+                checkExtractAssetsOrCleanup();
             }
         }
     }
 
     private void handleFirstRun() {
         if (mAppData.getBoolean(AppData.KEY_FIRST_RUN, true)) {
+            mIsFirstRunFlow = true;
             showAspectRatioDialog();
         } else {
-            checkExtractAssetsOrCleanup();
+            mIsFirstRunFlow = false;
+            ActivityHelper.startGalleryActivity(this, getIntent());
+            finish();
         }
     }
 
@@ -197,11 +201,13 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                 .setMessage(R.string.firstRun_emulationProfile_message)
                 .setPositiveButton(fastText, (d, w) -> {
                     mAppData.putString("emulationProfileDefault", "Glide64-Fast");
-                    checkExtractAssetsOrCleanup();
+                    mAppData.putBoolean(AppData.KEY_FIRST_RUN, false);
+                    showClosingProgressDialog();
                 })
                 .setNegativeButton(accurateText, (d, w) -> {
                     mAppData.putString("emulationProfileDefault", "Glide64-Accurate");
-                    checkExtractAssetsOrCleanup();
+                    mAppData.putBoolean(AppData.KEY_FIRST_RUN, false);
+                    showClosingProgressDialog();
                 })
                 .setCancelable(false)
                 .show();
@@ -222,12 +228,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
     }
 
     private void proceedNext() {
-        if (mAppData.getBoolean(AppData.KEY_FIRST_RUN, true)) {
-            showClosingProgressDialog();
-        } else {
-            ActivityHelper.startGalleryActivity(this, getIntent());
-            finish();
-        }
+        handleFirstRun();
     }
 
     private void showClosingProgressDialog() {
@@ -252,7 +253,6 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                     handler.postDelayed(this, 1000);
                 } else {
                     closingDialog.dismiss();
-                    mAppData.putBoolean(AppData.KEY_FIRST_RUN, false);
                     finish();
                     android.os.Process.killProcess(android.os.Process.myPid());
                 }

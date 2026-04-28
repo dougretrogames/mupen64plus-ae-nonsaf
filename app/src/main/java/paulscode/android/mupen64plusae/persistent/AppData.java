@@ -481,7 +481,7 @@ public class AppData
 
     public void putInt( String key, int value )
     {
-        mPreferences.edit().putInt( key, value ).apply();
+        mPreferences.edit().putInt( key, value ).commit();
     }
 
     public boolean getBoolean( String key, boolean defaultValue )
@@ -491,7 +491,7 @@ public class AppData
 
     public void putBoolean( String key, boolean value )
     {
-        mPreferences.edit().putBoolean( key, value ).apply();
+        mPreferences.edit().putBoolean( key, value ).commit();
     }
 
     public long getLong( String key, long defaultValue )
@@ -501,12 +501,12 @@ public class AppData
 
     public void putLong( String key, long value )
     {
-        mPreferences.edit().putLong( key, value ).apply();
+        mPreferences.edit().putLong( key, value ).commit();
     }
 
     public void putString( String key, String value )
     {
-        mPreferences.edit().putString( key, value ).apply();
+        mPreferences.edit().putString( key, value ).commit();
     }
     
     /**

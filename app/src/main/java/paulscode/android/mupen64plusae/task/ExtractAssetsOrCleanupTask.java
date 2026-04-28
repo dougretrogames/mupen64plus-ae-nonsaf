@@ -401,7 +401,7 @@ public class ExtractAssetsOrCleanupTask
 
     private void putInt( String key, int value )
     {
-        mPreferences.edit().putInt( key, value ).apply();
+        mPreferences.edit().putInt( key, value ).commit();
     }
 
     private int getInt( String key )
