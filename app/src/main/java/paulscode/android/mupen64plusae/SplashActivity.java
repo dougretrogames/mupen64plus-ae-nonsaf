@@ -201,6 +201,7 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
                 .setMessage(R.string.firstRun_emulationProfile_message)
                 .setPositiveButton(fastText, (d, w) -> {
                     mAppData.putString("emulationProfileDefault", "Glide64-Fast");
+                    mAppData.putInt("displayResolution", 360);
                     mAppData.putBoolean(AppData.KEY_FIRST_RUN, false);
                     showClosingProgressDialog();
                 })
