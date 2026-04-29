@@ -199,14 +199,14 @@ public class SplashActivity extends AppCompatActivity implements ExtractAssetsLi
         new AlertDialog.Builder(this)
                 .setTitle(R.string.firstRun_emulationProfile_title)
                 .setMessage(R.string.firstRun_emulationProfile_message)
-                .setPositiveButton(fastText, (d, w) -> {
-                    mAppData.putString("emulationProfileDefault", "Glide64-Fast");
-                    mAppData.putInt("displayResolution", 360);
+                .setPositiveButton(accurateText, (d, w) -> {
+                    mAppData.putString("emulationProfileDefault", "Glide64-Accurate");
                     mAppData.putBoolean(AppData.KEY_FIRST_RUN, false);
                     showClosingProgressDialog();
                 })
-                .setNegativeButton(accurateText, (d, w) -> {
-                    mAppData.putString("emulationProfileDefault", "Glide64-Accurate");
+                .setNegativeButton(fastText, (d, w) -> {
+                    mAppData.putString("emulationProfileDefault", "Glide64-Fast");
+                    mAppData.putString("displayResolution", "360");
                     mAppData.putBoolean(AppData.KEY_FIRST_RUN, false);
                     showClosingProgressDialog();
                 })
