@@ -1,0 +1,4 @@
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-parallel/.cxx/Release/4n1y4q2l/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-parallel/.cxx/Release/4n1y4q2l/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-parallel/.cxx/Release/4n1y4q2l/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-parallel/.cxx/Release/4n1y4q2l/x86/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir

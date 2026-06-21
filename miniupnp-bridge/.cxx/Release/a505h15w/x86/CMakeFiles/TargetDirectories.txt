@@ -1,0 +1,3 @@
+C:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/.cxx/Release/a505h15w/x86/CMakeFiles/miniupnp-bridge.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/.cxx/Release/a505h15w/x86/CMakeFiles/edit_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/.cxx/Release/a505h15w/x86/CMakeFiles/rebuild_cache.dir

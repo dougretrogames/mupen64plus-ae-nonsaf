@@ -1,0 +1,184 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 21 min SDK version: x86",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "rebuilding JSON C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\x86\\android_gradle_build.json due to:",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "- no fingerprint file, will remove stale configuration folder",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "@echo off\n\"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\\\\bin\\\\java\" ^\n  --class-path ^\n  \"C:\\\\Users\\\\Douglas\\\\.gradle\\\\caches\\\\modules-2\\\\files-2.1\\\\com.google.prefab\\\\cli\\\\2.1.0\\\\aa32fec809c44fa531f01dcfb739b5b3304d3050\\\\cli-2.1.0-all.jar\" ^\n  com.google.prefab.cli.AppKt ^\n  --build-system ^\n  cmake ^\n  --platform ^\n  android ^\n  --abi ^\n  x86 ^\n  --os-version ^\n  21 ^\n  --stl ^\n  c++_shared ^\n  --ndk-version ^\n  26 ^\n  --output ^\n  \"C:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Temp\\\\agp-prefab-staging4499810360516976670\\\\staged-cli-output\" ^\n  \"C:\\\\Users\\\\Douglas\\\\.gradle\\\\caches\\\\8.14.3\\\\transforms\\\\79f2a3c6b545820f18a47e75c49681eb\\\\transformed\\\\jetified-oboe-1.6.1\\\\prefab\"\n",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "Received process result: 0",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "removing stale contents from \u0027C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\x86\u0027",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\x86\u0027",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake @echo off\n\"C:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d21\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-21\" ^\n  \"-DANDROID_ABI\u003dx86\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003dx86\" ^\n  \"-DANDROID_NDK\u003dC:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\26.1.10909125\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dC:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\26.1.10909125\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dC:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\26.1.10909125\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dC:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_CXX_FLAGS\u003d-fexceptions -ffast-math -ftree-vectorize -Oz -g\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\\\\build\\\\intermediates\\\\cxx\\\\Release\\\\725j3w5u\\\\obj\\\\x86\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\\\\build\\\\intermediates\\\\cxx\\\\Release\\\\725j3w5u\\\\obj\\\\x86\" ^\n  \"-DCMAKE_FIND_ROOT_PATH\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\\\\.cxx\\\\Release\\\\725j3w5u\\\\prefab\\\\x86\\\\prefab\" ^\n  \"-BC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\\\\.cxx\\\\Release\\\\725j3w5u\\\\x86\" ^\n  -GNinja ^\n  \"-DANDROID\u003d1\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dRelease\" ^\n  \"-DANDROID_ARM_NEON\u003dTRUE\" ^\n  \"-DANDROID_TOOLCHAIN\u003dclang\" ^\n  \"-DANDROID_LIB_PATH\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android/../ndkLibs\" ^\n  \"-DM64API_INCLUDE_PATH\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android/../mupen64plus-core/upstream/src/api/\" ^\n  \"-DANDROID_STL\u003dc++_shared\"\n",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "@echo off\n\"C:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d21\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-21\" ^\n  \"-DANDROID_ABI\u003dx86\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003dx86\" ^\n  \"-DANDROID_NDK\u003dC:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\26.1.10909125\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dC:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\26.1.10909125\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dC:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\26.1.10909125\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dC:\\\\Users\\\\Douglas\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_CXX_FLAGS\u003d-fexceptions -ffast-math -ftree-vectorize -Oz -g\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\\\\build\\\\intermediates\\\\cxx\\\\Release\\\\725j3w5u\\\\obj\\\\x86\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\\\\build\\\\intermediates\\\\cxx\\\\Release\\\\725j3w5u\\\\obj\\\\x86\" ^\n  \"-DCMAKE_FIND_ROOT_PATH\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\\\\.cxx\\\\Release\\\\725j3w5u\\\\prefab\\\\x86\\\\prefab\" ^\n  \"-BC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android\\\\.cxx\\\\Release\\\\725j3w5u\\\\x86\" ^\n  -GNinja ^\n  \"-DANDROID\u003d1\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dRelease\" ^\n  \"-DANDROID_ARM_NEON\u003dTRUE\" ^\n  \"-DANDROID_TOOLCHAIN\u003dclang\" ^\n  \"-DANDROID_LIB_PATH\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android/../ndkLibs\" ^\n  \"-DM64API_INCLUDE_PATH\u003dC:\\\\Users\\\\Douglas\\\\mupen64plus-ae-nonsaf\\\\mupen64plus-audio-android/../mupen64plus-core/upstream/src/api/\" ^\n  \"-DANDROID_STL\u003dc++_shared\"\n",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "Received process result: 0",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "Exiting generation of C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\x86\\compile_commands.json.bin normally",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "hard linked C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\x86\\compile_commands.json to C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\tools\\debug\\x86\\compile_commands.json",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 0
+  }
+]

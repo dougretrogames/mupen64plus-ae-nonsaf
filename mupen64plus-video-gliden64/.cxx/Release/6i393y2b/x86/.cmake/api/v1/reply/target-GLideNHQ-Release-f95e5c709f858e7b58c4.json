@@ -1,0 +1,297 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "GLideNHQ/libGLideNHQ.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"GLideNHQ/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 112,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 134,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 211,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 20,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 215,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 263,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fexceptions -ffast-math -ftree-vectorize -O3 -g -fno-omit-frame-pointer -std=c++0x -Wno-unused-result -static -fPIC  -O3 -DNDEBUG  -fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "MUPENPLUSAPI"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "TXFILTER_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/inc"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/upstream/src/."
+				},
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/upstream/src/inc"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/upstream/src/osal"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/upstream/src/GLideNHQ/inc"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/upstream/src/GLideNHQ/../osal"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			],
+			"sysroot" : 
+			{
+				"path" : "C:/Users/Douglas/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot"
+			}
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "osal::@ae383c2ac62ad419f02e"
+		}
+	],
+	"id" : "GLideNHQ::@a8ec82b27300e6b86213",
+	"name" : "GLideNHQ",
+	"nameOnDisk" : "libGLideNHQ.a",
+	"paths" : 
+	{
+		"build" : "GLideNHQ",
+		"source" : "GLideNHQ"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TextureFilters.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TextureFilters_2xsai.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TextureFilters_hq2x.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TextureFilters_hq4x.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TextureFilters_xbrz.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxCache.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxDbg.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxFilter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxFilterExport.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxHiResLoader.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxHiResCache.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxHiResNoCache.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxImage.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxQuantize.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxReSample.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxTexCache.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "GLideNHQ/TxUtil.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

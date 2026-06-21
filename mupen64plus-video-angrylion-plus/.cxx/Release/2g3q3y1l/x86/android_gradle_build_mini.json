@@ -1,0 +1,39 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-angrylion-plus\\upstream\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-angrylion-plus\\.cxx\\Release\\2g3q3y1l\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-angrylion-plus\\.cxx\\Release\\2g3q3y1l\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "alp-core::@6890427a1f51a3e7e1df": {
+      "artifactName": "alp-core",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-angrylion-plus\\.cxx\\Release\\2g3q3y1l\\x86\\libalp-core.a",
+      "runtimeFiles": []
+    },
+    "mupen64plus-video-angrylion-plus::@6890427a1f51a3e7e1df": {
+      "artifactName": "mupen64plus-video-angrylion-plus",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-angrylion-plus\\build\\intermediates\\cxx\\Release\\2g3q3y1l\\obj\\x86\\libmupen64plus-video-angrylion-plus.so",
+      "runtimeFiles": []
+    },
+    "alp-output::@6890427a1f51a3e7e1df": {
+      "artifactName": "alp-output",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-angrylion-plus\\.cxx\\Release\\2g3q3y1l\\x86\\libalp-output.a",
+      "runtimeFiles": []
+    }
+  }
+}

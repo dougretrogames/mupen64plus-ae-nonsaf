@@ -715,6 +715,12 @@
   <string name="rsp_title">RSP</string>
   <string name="scanRomsDialog_clearGallery">Limpar galeria antes de adicionar</string>
   <string name="scanRomsDialog_downloadArt">Fazer download de imagem da caixa</string>
+  <string name="scanRomsDialog_enter_path">Digitar Caminho</string>
+  <string name="scanRomsDialog_enter_path_title">Digitar caminho da pasta</string>
+  <string name="scanRomsDialog_enter_path_hint">/storage/emulated/0/ROMs</string>
+  <string name="scanRomsDialog_path_not_found">Diretório não encontrado: %s</string>
+  <string name="scanRomsDialog_storage_permission_title">Permissão de Armazenamento Necessária</string>
+  <string name="scanRomsDialog_storage_permission_message">Para navegar em arquivos fora do sandbox do app, conceda a permissão \'Acesso a todos os arquivos\'.</string>
   <string name="scanRomsDialog_no_saf">Nenhum seletor de arquivos do sistema detectado, coloque suas ROMs na seguinte pasta: </string>
   <string name="scanRomsDialog_scanSubdirectories">Escanear subdiretórios</string>
   <string name="scanRomsDialog_searchZips">Procurar arquivos zip</string>

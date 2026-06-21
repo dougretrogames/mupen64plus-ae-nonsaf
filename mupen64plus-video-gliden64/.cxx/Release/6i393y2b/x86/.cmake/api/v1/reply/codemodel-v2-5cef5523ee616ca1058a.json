@@ -1,0 +1,138 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "osal",
+					"jsonFile" : "directory-osal-Release-82fba5ca2da468eb2fc4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "osal",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "GLideNHQ",
+					"jsonFile" : "directory-GLideNHQ-Release-db01e422264fe6ea8560.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "GLideNHQ",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "GLideN64",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "osal",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "GLideNHQ",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "GLideNHQ::@a8ec82b27300e6b86213",
+					"jsonFile" : "target-GLideNHQ-Release-f95e5c709f858e7b58c4.json",
+					"name" : "GLideNHQ",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "libmupen64plus-video-GLideN64::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-libmupen64plus-video-GLideN64-Release-e4bfec45d94d478eef51.json",
+					"name" : "libmupen64plus-video-GLideN64",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "osal::@ae383c2ac62ad419f02e",
+					"jsonFile" : "target-osal-Release-83461f6f58f81960ff5f.json",
+					"name" : "osal",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86",
+		"source" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/upstream/src"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

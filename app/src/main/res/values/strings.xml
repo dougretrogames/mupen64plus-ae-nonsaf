@@ -848,6 +848,12 @@
     <string name="scanRomsDialog_select_folder">Select Folder</string>
     <string name="scanRomsDialog_select_file">Select File</string>
     <string name="scanRomsDialog_no_saf">No system file picker detected, please place your ROMs in the follow folder: </string>
+    <string name="scanRomsDialog_enter_path">Enter Path</string>
+    <string name="scanRomsDialog_enter_path_title">Enter folder path</string>
+    <string name="scanRomsDialog_enter_path_hint">/storage/emulated/0/ROMs</string>
+    <string name="scanRomsDialog_path_not_found">Directory not found: %s</string>
+    <string name="scanRomsDialog_storage_permission_title">Storage Permission Required</string>
+    <string name="scanRomsDialog_storage_permission_message">To browse files outside the app sandbox, grant \'All files access\' permission.</string>
     <string name="scanRomsDialog_searchZips">Search zip files</string>
     <string name="scanRomsDialog_downloadArt">Download cover art</string>
     <string name="scanRomsDialog_clearGallery">Clear gallery before adding</string>

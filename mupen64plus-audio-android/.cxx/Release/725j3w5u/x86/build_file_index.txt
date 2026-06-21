@@ -1,0 +1,3 @@
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-audio-android\.cxx\Release\725j3w5u\prefab\x86\prefab\lib\i686-linux-android\cmake\oboe\oboeConfig.cmake
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-audio-android\.cxx\Release\725j3w5u\prefab\x86\prefab\lib\i686-linux-android\cmake\oboe\oboeConfigVersion.cmake
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-audio-android\CMakeLists.txt

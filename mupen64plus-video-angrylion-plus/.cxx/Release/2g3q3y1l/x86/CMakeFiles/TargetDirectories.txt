@@ -1,0 +1,5 @@
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-angrylion-plus/.cxx/Release/2g3q3y1l/x86/CMakeFiles/alp-core.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-angrylion-plus/.cxx/Release/2g3q3y1l/x86/CMakeFiles/alp-output.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-angrylion-plus/.cxx/Release/2g3q3y1l/x86/CMakeFiles/mupen64plus-video-angrylion-plus.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-angrylion-plus/.cxx/Release/2g3q3y1l/x86/CMakeFiles/edit_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-angrylion-plus/.cxx/Release/2g3q3y1l/x86/CMakeFiles/rebuild_cache.dir

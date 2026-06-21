@@ -1,0 +1,4 @@
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-audio-android/.cxx/Release/725j3w5u/x86/CMakeFiles/mupen64plus-audio-android.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-audio-android/.cxx/Release/725j3w5u/x86/CMakeFiles/mupen64plus-audio-android-fp.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-audio-android/.cxx/Release/725j3w5u/x86/CMakeFiles/edit_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-audio-android/.cxx/Release/725j3w5u/x86/CMakeFiles/rebuild_cache.dir

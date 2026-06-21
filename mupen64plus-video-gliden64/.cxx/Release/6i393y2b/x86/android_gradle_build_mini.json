@@ -1,0 +1,43 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-gliden64\\upstream\\src\\CMakeLists.txt",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-gliden64\\upstream\\src\\GLideNHQ\\CMakeLists.txt",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-gliden64\\upstream\\src\\osal\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-gliden64\\.cxx\\Release\\6i393y2b\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-gliden64\\.cxx\\Release\\6i393y2b\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "libmupen64plus-video-GLideN64::@6890427a1f51a3e7e1df": {
+      "artifactName": "libmupen64plus-video-GLideN64",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-gliden64\\.cxx\\Release\\6i393y2b\\x86\\plugin\\Release\\libmupen64plus-video-GLideN64.so",
+      "runtimeFiles": [
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\ndkLibs\\libs\\release\\x86\\libfreetype.so"
+      ]
+    },
+    "GLideNHQ::@a8ec82b27300e6b86213": {
+      "artifactName": "GLideNHQ",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-gliden64\\.cxx\\Release\\6i393y2b\\x86\\GLideNHQ\\libGLideNHQ.a",
+      "runtimeFiles": []
+    },
+    "osal::@ae383c2ac62ad419f02e": {
+      "artifactName": "osal",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-gliden64\\.cxx\\Release\\6i393y2b\\x86\\osal\\libosal.a",
+      "runtimeFiles": []
+    }
+  }
+}

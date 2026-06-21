@@ -1,0 +1,618 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55,
+						56,
+						57,
+						58,
+						59,
+						60,
+						61,
+						62
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "parallel-rsp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55,
+						56,
+						57,
+						58,
+						59,
+						60,
+						61,
+						62
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "lightning::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lightning-Release-020b56c6b7e8fb43eb7d.json",
+					"name" : "lightning",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mupen64plus-rsp-parallel::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mupen64plus-rsp-parallel-Release-9a2eff09b35a40ffbed0.json",
+					"name" : "mupen64plus-rsp-parallel",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-runner::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-runner-Release-f7ea4fe5476df2fd88ea.json",
+					"name" : "rsp-runner",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-add::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-add-Release-9866faf42d7639a05edc.json",
+					"name" : "rsp-test-binary-add",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-addi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-addi-Release-df4305f7e8ea893abe7d.json",
+					"name" : "rsp-test-binary-addi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-and::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-and-Release-6446fd860ff3b91275c1.json",
+					"name" : "rsp-test-binary-and",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-andi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-andi-Release-3fa4778ff07b50a377ba.json",
+					"name" : "rsp-test-binary-andi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-beq-impossible-delay-slot-first-taken::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-beq-impossible-delay-slot-first-taken-Release-decb39da3320c7d285dc.json",
+					"name" : "rsp-test-binary-beq-impossible-delay-slot-first-taken",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-beq-impossible-delay-slot-second-taken::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-beq-impossible-delay-slot-second-taken-Release-c63616a40029046b415b.json",
+					"name" : "rsp-test-binary-beq-impossible-delay-slot-second-taken",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-bgezal::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-bgezal-Release-0e7d7479637fe1fb3533.json",
+					"name" : "rsp-test-binary-bgezal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-bgtz::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-bgtz-Release-3340d9c39516886a5ea8.json",
+					"name" : "rsp-test-binary-bgtz",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-blez::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-blez-Release-7eb4206856bcf1d7a958.json",
+					"name" : "rsp-test-binary-blez",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-bltz::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-bltz-Release-ad1f2e6487657ec37b55.json",
+					"name" : "rsp-test-binary-bltz",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-bltzal::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-bltzal-Release-ae1e945e4563d6814761.json",
+					"name" : "rsp-test-binary-bltzal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-bne::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-bne-Release-4aab2f1ecb8ec6be715f.json",
+					"name" : "rsp-test-binary-bne",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-bug-shl-into-branch::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-bug-shl-into-branch-Release-cc86c77b03807420e1c1.json",
+					"name" : "rsp-test-binary-bug-shl-into-branch",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-cop0::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-cop0-Release-902550191709d2c942ec.json",
+					"name" : "rsp-test-binary-cop0",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-cop2-basic::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-cop2-basic-Release-02e8f50eb59d3217791d.json",
+					"name" : "rsp-test-binary-cop2-basic",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-cop2-ls::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-cop2-ls-Release-746178a40d1047eed06a.json",
+					"name" : "rsp-test-binary-cop2-ls",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-cop2-vector::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-cop2-vector-Release-3a677e58fe570adc09af.json",
+					"name" : "rsp-test-binary-cop2-vector",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-delay-slot-before-break::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-delay-slot-before-break-Release-a6cb73050c5d9143a32f.json",
+					"name" : "rsp-test-binary-delay-slot-before-break",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-delay-slot-before-new-block::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-delay-slot-before-new-block-Release-73dc883d0eafa16691a7.json",
+					"name" : "rsp-test-binary-delay-slot-before-new-block",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-delay-slot-before-new-block-illegal::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-delay-slot-before-new-block-illegal-Release-30eec8a3542ce18196a4.json",
+					"name" : "rsp-test-binary-delay-slot-before-new-block-illegal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-delay-slot-before-new-block-not-taken::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-delay-slot-before-new-block-not-taken-Release-25fc3414dbc65517d9b4.json",
+					"name" : "rsp-test-binary-delay-slot-before-new-block-not-taken",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-j::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-j-Release-e35141a24801af44d717.json",
+					"name" : "rsp-test-binary-j",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-jal::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-jal-Release-0487069ea941e08e2b8f.json",
+					"name" : "rsp-test-binary-jal",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-jalr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-jalr-Release-29bb47ce274c2e08e303.json",
+					"name" : "rsp-test-binary-jalr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-jr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-jr-Release-ae8cf3439167f87f241e.json",
+					"name" : "rsp-test-binary-jr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lb-Release-8008ea0f832133cea988.json",
+					"name" : "rsp-test-binary-lb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lbu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lbu-Release-308b97eff5f32f3df7b1.json",
+					"name" : "rsp-test-binary-lbu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lh::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lh-Release-591f8c73e5cc0367b6bc.json",
+					"name" : "rsp-test-binary-lh",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lh-unaligned::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lh-unaligned-Release-f8c26a8a5db2f8ad561c.json",
+					"name" : "rsp-test-binary-lh-unaligned",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lhu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lhu-Release-4b39a075b2c966a62dd3.json",
+					"name" : "rsp-test-binary-lhu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lhu-unaligned::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lhu-unaligned-Release-431af63da78061165438.json",
+					"name" : "rsp-test-binary-lhu-unaligned",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lui-Release-7d4474bb9bcc0272e123.json",
+					"name" : "rsp-test-binary-lui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lw::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lw-Release-1ac125bd316ad21650be.json",
+					"name" : "rsp-test-binary-lw",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lw-unaligned::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lw-unaligned-Release-a5b4a0ac534e5820e5d6.json",
+					"name" : "rsp-test-binary-lw-unaligned",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-lw-unaligned-in-branch-delay::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-lw-unaligned-in-branch-delay-Release-fd6de425cf6c2e0b91d1.json",
+					"name" : "rsp-test-binary-lw-unaligned-in-branch-delay",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-nor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-nor-Release-701bb6a8aa5b100b3542.json",
+					"name" : "rsp-test-binary-nor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-or::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-or-Release-45fac797facb9b402630.json",
+					"name" : "rsp-test-binary-or",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-ori::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-ori-Release-27e180bbd587163a57d5.json",
+					"name" : "rsp-test-binary-ori",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sb::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sb-Release-89ec6613fc748d40f0f6.json",
+					"name" : "rsp-test-binary-sb",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sh::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sh-Release-d3fc70554ff73a66bb60.json",
+					"name" : "rsp-test-binary-sh",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sh-unaligned::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sh-unaligned-Release-45f64c7ebc189b2de9c6.json",
+					"name" : "rsp-test-binary-sh-unaligned",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sll::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sll-Release-6c1757bebc90a33e7ef7.json",
+					"name" : "rsp-test-binary-sll",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sllv::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sllv-Release-63b47a46f8b357399ae9.json",
+					"name" : "rsp-test-binary-sllv",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-slt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-slt-Release-7c1591f12bcf10da4bbe.json",
+					"name" : "rsp-test-binary-slt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-slti::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-slti-Release-c00ff1c3aa2f500dbe19.json",
+					"name" : "rsp-test-binary-slti",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sltiu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sltiu-Release-1d51cefc837f1dab8680.json",
+					"name" : "rsp-test-binary-sltiu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sltu::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sltu-Release-462073c50d921a9432f6.json",
+					"name" : "rsp-test-binary-sltu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sra::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sra-Release-be7b2150b32b694a3c2b.json",
+					"name" : "rsp-test-binary-sra",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-srav::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-srav-Release-129ee25b4824fcf111e5.json",
+					"name" : "rsp-test-binary-srav",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-srl::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-srl-Release-891844bed238793b9089.json",
+					"name" : "rsp-test-binary-srl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-srlv::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-srlv-Release-07fed3ecf34a3abb5217.json",
+					"name" : "rsp-test-binary-srlv",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sub::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sub-Release-b49399fb871dee040cf5.json",
+					"name" : "rsp-test-binary-sub",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sw::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sw-Release-71132cb892932a2eedb6.json",
+					"name" : "rsp-test-binary-sw",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-sw-unaligned::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-sw-unaligned-Release-e84c26902cbe71f5ac2c.json",
+					"name" : "rsp-test-binary-sw-unaligned",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-unconditional-delay-slot-before-break::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-unconditional-delay-slot-before-break-Release-624041f125bb854bee9c.json",
+					"name" : "rsp-test-binary-unconditional-delay-slot-before-break",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-xor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-xor-Release-272e00cd4b2c0ece8e2c.json",
+					"name" : "rsp-test-binary-xor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-binary-xori::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-binary-xori-Release-e701f2030c08e5027fab.json",
+					"name" : "rsp-test-binary-xori",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-test-crt::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-test-crt-Release-49673348791daaa9226f.json",
+					"name" : "rsp-test-crt",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-tests-Release-ecac2b128e5ed89a84c6.json",
+					"name" : "rsp-tests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "rsp-vu-fuzzer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-rsp-vu-fuzzer-Release-8c35ded485029a0685c1.json",
+					"name" : "rsp-vu-fuzzer",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-rsp-parallel/.cxx/Release/681e644m/x86",
+		"source" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-rsp-parallel/upstream"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

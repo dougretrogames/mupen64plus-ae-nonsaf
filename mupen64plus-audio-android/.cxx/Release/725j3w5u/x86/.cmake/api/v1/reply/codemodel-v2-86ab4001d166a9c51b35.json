@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Audio-Android",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "mupen64plus-audio-android::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mupen64plus-audio-android-Release-214bc361c5befc1a4e7a.json",
+					"name" : "mupen64plus-audio-android",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mupen64plus-audio-android-fp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mupen64plus-audio-android-fp-Release-3c149a11c63729a41cc7.json",
+					"name" : "mupen64plus-audio-android-fp",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-audio-android/.cxx/Release/725j3w5u/x86",
+		"source" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-audio-android"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

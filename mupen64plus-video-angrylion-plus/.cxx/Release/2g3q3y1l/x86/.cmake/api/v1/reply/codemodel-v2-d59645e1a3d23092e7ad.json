@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "angrylion-plus",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "alp-core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-alp-core-Release-22cb1bc308267923221a.json",
+					"name" : "alp-core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "alp-output::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-alp-output-Release-868fee898951a72a74f2.json",
+					"name" : "alp-output",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "mupen64plus-video-angrylion-plus::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-mupen64plus-video-angrylion-plus-Release-36cd59a9af7bc5f4879d.json",
+					"name" : "mupen64plus-video-angrylion-plus",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-angrylion-plus/.cxx/Release/2g3q3y1l/x86",
+		"source" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-angrylion-plus/upstream"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

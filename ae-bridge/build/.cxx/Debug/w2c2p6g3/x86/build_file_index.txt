@@ -1,0 +1,2 @@
+C:\Users\Douglas\mupen64plus-ae-nonsaf\ae-bridge\Android.mk
+C:\Users\Douglas\mupen64plus-ae-nonsaf\ae-bridge\Application.mk

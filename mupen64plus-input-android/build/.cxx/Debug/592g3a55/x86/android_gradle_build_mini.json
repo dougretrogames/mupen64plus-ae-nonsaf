@@ -1,0 +1,63 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\Android.mk",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\Application.mk"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\ndk-build.cmd",
+      "NDK_PROJECT_PATH\u003dnull",
+      "APP_BUILD_SCRIPT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\Android.mk",
+      "NDK_APPLICATION_MK\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\Application.mk",
+      "APP_ABI\u003dx86",
+      "NDK_ALL_ABIS\u003dx86",
+      "NDK_DEBUG\u003d1",
+      "APP_PLATFORM\u003dandroid-21",
+      "NDK_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\build\\intermediates\\cxx\\Debug\\592g3a55/obj",
+      "NDK_LIBS_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\build\\intermediates\\cxx\\Debug\\592g3a55/lib",
+      "APP_CPPFLAGS+\u003d-fexceptions",
+      "NDK_APPLICATION_MK:\u003dApplication.mk",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\ndk-build.cmd",
+    "NDK_PROJECT_PATH\u003dnull",
+    "APP_BUILD_SCRIPT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\Android.mk",
+    "NDK_APPLICATION_MK\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\Application.mk",
+    "APP_ABI\u003dx86",
+    "NDK_ALL_ABIS\u003dx86",
+    "NDK_DEBUG\u003d1",
+    "APP_PLATFORM\u003dandroid-21",
+    "NDK_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\build\\intermediates\\cxx\\Debug\\592g3a55/obj",
+    "NDK_LIBS_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\build\\intermediates\\cxx\\Debug\\592g3a55/lib",
+    "APP_CPPFLAGS+\u003d-fexceptions",
+    "NDK_APPLICATION_MK:\u003dApplication.mk",
+    "-j11",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "mupen64plus-input-android-debug-x86": {
+      "artifactName": "mupen64plus-input-android",
+      "buildCommandComponents": [
+        "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\ndk-build.cmd",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\Android.mk",
+        "NDK_APPLICATION_MK\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\Application.mk",
+        "APP_ABI\u003dx86",
+        "NDK_ALL_ABIS\u003dx86",
+        "NDK_DEBUG\u003d1",
+        "APP_PLATFORM\u003dandroid-21",
+        "NDK_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\build\\intermediates\\cxx\\Debug\\592g3a55/obj",
+        "NDK_LIBS_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\build\\intermediates\\cxx\\Debug\\592g3a55/lib",
+        "APP_CPPFLAGS+\u003d-fexceptions",
+        "NDK_APPLICATION_MK:\u003dApplication.mk",
+        "-j11",
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\build\\intermediates\\cxx\\Debug\\592g3a55/obj/local/x86/libmupen64plus-input-android.so"
+      ],
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-input-android\\build\\intermediates\\cxx\\Debug\\592g3a55\\obj\\local\\x86\\libmupen64plus-input-android.so",
+      "runtimeFiles": []
+    }
+  }
+}

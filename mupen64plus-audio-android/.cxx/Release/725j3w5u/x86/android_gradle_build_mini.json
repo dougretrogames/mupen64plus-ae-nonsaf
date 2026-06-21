@@ -1,0 +1,41 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\prefab\\x86\\prefab\\lib\\i686-linux-android\\cmake\\oboe\\oboeConfig.cmake",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\prefab\\x86\\prefab\\lib\\i686-linux-android\\cmake\\oboe\\oboeConfigVersion.cmake",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\.cxx\\Release\\725j3w5u\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "mupen64plus-audio-android-fp::@6890427a1f51a3e7e1df": {
+      "artifactName": "mupen64plus-audio-android-fp",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\build\\intermediates\\cxx\\Release\\725j3w5u\\obj\\x86\\libmupen64plus-audio-android-fp.so",
+      "runtimeFiles": [
+        "C:\\Users\\Douglas\\.gradle\\caches\\8.14.3\\transforms\\79f2a3c6b545820f18a47e75c49681eb\\transformed\\jetified-oboe-1.6.1\\prefab\\modules\\oboe\\libs\\android.x86\\liboboe.so",
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\ndkLibs\\libs\\release\\x86\\libsoundtouch_fp.so"
+      ]
+    },
+    "mupen64plus-audio-android::@6890427a1f51a3e7e1df": {
+      "artifactName": "mupen64plus-audio-android",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-audio-android\\build\\intermediates\\cxx\\Release\\725j3w5u\\obj\\x86\\libmupen64plus-audio-android.so",
+      "runtimeFiles": [
+        "C:\\Users\\Douglas\\.gradle\\caches\\8.14.3\\transforms\\79f2a3c6b545820f18a47e75c49681eb\\transformed\\jetified-oboe-1.6.1\\prefab\\modules\\oboe\\libs\\android.x86\\liboboe.so",
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\ndkLibs\\libs\\release\\x86\\libsoundtouch.so"
+      ]
+    }
+  }
+}

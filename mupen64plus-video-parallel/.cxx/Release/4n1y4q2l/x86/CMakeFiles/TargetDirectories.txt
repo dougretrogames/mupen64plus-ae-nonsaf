@@ -1,0 +1,3 @@
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-parallel/.cxx/Release/4n1y4q2l/x86/CMakeFiles/libmupen64plus-video-parallel.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-parallel/.cxx/Release/4n1y4q2l/x86/CMakeFiles/edit_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-parallel/.cxx/Release/4n1y4q2l/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,41 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\miniupnp-bridge\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\miniupnp-bridge\\.cxx\\Release\\a505h15w\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\miniupnp-bridge\\.cxx\\Release\\a505h15w\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "miniupnp-bridge::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "miniupnp-bridge",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\miniupnp-bridge\\build\\intermediates\\cxx\\Release\\a505h15w\\obj\\x86\\libminiupnp-bridge.so",
+      "runtimeFiles": [
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\ndkLibs\\libs\\release\\x86\\libminiupnp-build.so",
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\ndkLibs\\libs\\release\\x86\\libnatpmp.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

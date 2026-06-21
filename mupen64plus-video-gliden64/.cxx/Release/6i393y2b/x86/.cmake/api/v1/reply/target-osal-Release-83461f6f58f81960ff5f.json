@@ -1,0 +1,149 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "osal/libosal.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"osal/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 211,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 20,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 215,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -ffast-math -ftree-vectorize -O3 -g -fno-omit-frame-pointer -static -fPIC  -O3 -DNDEBUG  -fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "MUPENPLUSAPI"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "NDEBUG"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "TXFILTER_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/inc"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/upstream/src/."
+				},
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/upstream/src/inc"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			],
+			"sysroot" : 
+			{
+				"path" : "C:/Users/Douglas/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot"
+			}
+		}
+	],
+	"id" : "osal::@ae383c2ac62ad419f02e",
+	"name" : "osal",
+	"nameOnDisk" : "libosal.a",
+	"paths" : 
+	{
+		"build" : "osal",
+		"source" : "osal"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "osal/osal_files_unix.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "osal/osal_keys_unix.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

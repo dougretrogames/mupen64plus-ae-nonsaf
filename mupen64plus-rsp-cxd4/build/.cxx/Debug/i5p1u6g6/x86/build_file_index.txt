@@ -1,0 +1,2 @@
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-rsp-cxd4\Android.mk
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-rsp-cxd4\Application.mk

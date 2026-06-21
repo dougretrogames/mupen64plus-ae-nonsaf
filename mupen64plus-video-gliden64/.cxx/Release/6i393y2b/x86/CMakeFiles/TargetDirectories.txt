@@ -1,0 +1,9 @@
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/CMakeFiles/libmupen64plus-video-GLideN64.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/CMakeFiles/edit_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/CMakeFiles/rebuild_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/osal/CMakeFiles/osal.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/osal/CMakeFiles/edit_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/osal/CMakeFiles/rebuild_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/GLideNHQ/CMakeFiles/GLideNHQ.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/GLideNHQ/CMakeFiles/edit_cache.dir
+C:/Users/Douglas/mupen64plus-ae-nonsaf/mupen64plus-video-gliden64/.cxx/Release/6i393y2b/x86/GLideNHQ/CMakeFiles/rebuild_cache.dir

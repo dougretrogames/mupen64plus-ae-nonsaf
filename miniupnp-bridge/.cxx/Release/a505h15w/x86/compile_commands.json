@@ -1,0 +1,12 @@
+[
+{
+  "directory": "C:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/.cxx/Release/a505h15w/x86",
+  "command": "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android21 --sysroot=C:/Users/Douglas/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DANDROID -Dminiupnp_bridge_EXPORTS -IC:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/../ndkLibs/miniupnp -IC:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/../ndkLibs -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fexceptions -ffast-math -ftree-vectorize -Oz -g -O3 -DWITH_UPNP -O3 -DNDEBUG  -fPIC -std=gnu++17 -o CMakeFiles\\miniupnp-bridge.dir\\src\\PortManager.cpp.o -c C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\miniupnp-bridge\\src\\PortManager.cpp",
+  "file": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\miniupnp-bridge\\src\\PortManager.cpp"
+},
+{
+  "directory": "C:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/.cxx/Release/a505h15w/x86",
+  "command": "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android21 --sysroot=C:/Users/Douglas/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DANDROID -Dminiupnp_bridge_EXPORTS -IC:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/../ndkLibs/miniupnp -IC:/Users/Douglas/mupen64plus-ae-nonsaf/miniupnp-bridge/../ndkLibs -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fexceptions -ffast-math -ftree-vectorize -Oz -g -O3 -DWITH_UPNP -O3 -DNDEBUG  -fPIC -std=gnu++17 -o CMakeFiles\\miniupnp-bridge.dir\\src\\PortManagerNatPmp.cpp.o -c C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\miniupnp-bridge\\src\\PortManagerNatPmp.cpp",
+  "file": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\miniupnp-bridge\\src\\PortManagerNatPmp.cpp"
+}
+]

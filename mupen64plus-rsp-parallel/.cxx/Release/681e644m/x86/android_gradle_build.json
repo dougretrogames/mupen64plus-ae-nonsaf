@@ -1,0 +1,359 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\upstream\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\.cxx\\Release\\681e644m\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\.cxx\\Release\\681e644m\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "lightning::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "lightning",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\.cxx\\Release\\681e644m\\x86\\liblightning.a"
+    },
+    "mupen64plus-rsp-parallel::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "mupen64plus-rsp-parallel",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\build\\intermediates\\cxx\\Release\\681e644m\\obj\\x86\\libmupen64plus-rsp-parallel.so",
+      "runtimeFiles": []
+    },
+    "rsp-runner::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-runner",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\build\\intermediates\\cxx\\Release\\681e644m\\obj\\x86\\rsp-runner",
+      "runtimeFiles": [
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\build\\intermediates\\cxx\\Release\\681e644m\\obj\\x86\\libmupen64plus-rsp-parallel.so"
+      ]
+    },
+    "rsp-test-binary-add::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-add"
+    },
+    "rsp-test-binary-addi::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-addi"
+    },
+    "rsp-test-binary-and::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-and"
+    },
+    "rsp-test-binary-andi::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-andi"
+    },
+    "rsp-test-binary-beq-impossible-delay-slot-first-taken::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-beq-impossible-delay-slot-first-taken"
+    },
+    "rsp-test-binary-beq-impossible-delay-slot-second-taken::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-beq-impossible-delay-slot-second-taken"
+    },
+    "rsp-test-binary-bgezal::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-bgezal"
+    },
+    "rsp-test-binary-bgtz::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-bgtz"
+    },
+    "rsp-test-binary-blez::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-blez"
+    },
+    "rsp-test-binary-bltz::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-bltz"
+    },
+    "rsp-test-binary-bltzal::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-bltzal"
+    },
+    "rsp-test-binary-bne::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-bne"
+    },
+    "rsp-test-binary-bug-shl-into-branch::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-bug-shl-into-branch"
+    },
+    "rsp-test-binary-cop0::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-cop0"
+    },
+    "rsp-test-binary-cop2-basic::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-cop2-basic"
+    },
+    "rsp-test-binary-cop2-ls::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-cop2-ls"
+    },
+    "rsp-test-binary-cop2-vector::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-cop2-vector"
+    },
+    "rsp-test-binary-delay-slot-before-break::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-delay-slot-before-break"
+    },
+    "rsp-test-binary-delay-slot-before-new-block::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-delay-slot-before-new-block"
+    },
+    "rsp-test-binary-delay-slot-before-new-block-illegal::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-delay-slot-before-new-block-illegal"
+    },
+    "rsp-test-binary-delay-slot-before-new-block-not-taken::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-delay-slot-before-new-block-not-taken"
+    },
+    "rsp-test-binary-j::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-j"
+    },
+    "rsp-test-binary-jal::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-jal"
+    },
+    "rsp-test-binary-jalr::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-jalr"
+    },
+    "rsp-test-binary-jr::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-jr"
+    },
+    "rsp-test-binary-lb::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lb"
+    },
+    "rsp-test-binary-lbu::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lbu"
+    },
+    "rsp-test-binary-lh::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lh"
+    },
+    "rsp-test-binary-lh-unaligned::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lh-unaligned"
+    },
+    "rsp-test-binary-lhu::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lhu"
+    },
+    "rsp-test-binary-lhu-unaligned::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lhu-unaligned"
+    },
+    "rsp-test-binary-lui::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lui"
+    },
+    "rsp-test-binary-lw::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lw"
+    },
+    "rsp-test-binary-lw-unaligned::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lw-unaligned"
+    },
+    "rsp-test-binary-lw-unaligned-in-branch-delay::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-lw-unaligned-in-branch-delay"
+    },
+    "rsp-test-binary-nor::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-nor"
+    },
+    "rsp-test-binary-or::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-or"
+    },
+    "rsp-test-binary-ori::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-ori"
+    },
+    "rsp-test-binary-sb::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sb"
+    },
+    "rsp-test-binary-sh::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sh"
+    },
+    "rsp-test-binary-sh-unaligned::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sh-unaligned"
+    },
+    "rsp-test-binary-sll::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sll"
+    },
+    "rsp-test-binary-sllv::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sllv"
+    },
+    "rsp-test-binary-slt::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-slt"
+    },
+    "rsp-test-binary-slti::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-slti"
+    },
+    "rsp-test-binary-sltiu::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sltiu"
+    },
+    "rsp-test-binary-sltu::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sltu"
+    },
+    "rsp-test-binary-sra::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sra"
+    },
+    "rsp-test-binary-srav::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-srav"
+    },
+    "rsp-test-binary-srl::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-srl"
+    },
+    "rsp-test-binary-srlv::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-srlv"
+    },
+    "rsp-test-binary-sub::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sub"
+    },
+    "rsp-test-binary-sw::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sw"
+    },
+    "rsp-test-binary-sw-unaligned::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-sw-unaligned"
+    },
+    "rsp-test-binary-unconditional-delay-slot-before-break::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-unconditional-delay-slot-before-break"
+    },
+    "rsp-test-binary-xor::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-xor"
+    },
+    "rsp-test-binary-xori::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-binary-xori"
+    },
+    "rsp-test-crt::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-test-crt"
+    },
+    "rsp-tests::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-tests"
+    },
+    "rsp-vu-fuzzer::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "rsp-vu-fuzzer",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\build\\intermediates\\cxx\\Release\\681e644m\\obj\\x86\\rsp-vu-fuzzer",
+      "runtimeFiles": [
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-rsp-parallel\\build\\intermediates\\cxx\\Release\\681e644m\\obj\\x86\\libmupen64plus-rsp-parallel.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

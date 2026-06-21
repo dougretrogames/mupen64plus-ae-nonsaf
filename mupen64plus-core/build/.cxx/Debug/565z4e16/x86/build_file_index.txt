@@ -1,0 +1,2 @@
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-core\Android.mk
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-core\Application.mk

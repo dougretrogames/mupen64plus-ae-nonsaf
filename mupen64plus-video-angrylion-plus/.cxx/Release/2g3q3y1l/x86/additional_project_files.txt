@@ -1,0 +1,2 @@
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-video-angrylion-plus\.cxx\Release\2g3q3y1l\x86\src\core\version.h
+C:\Users\Douglas\mupen64plus-ae-nonsaf\mupen64plus-video-angrylion-plus\.cxx\Release\2g3q3y1l\x86\src\core\version.h.rule

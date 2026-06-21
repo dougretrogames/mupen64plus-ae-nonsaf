@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-parallel\\upstream\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-parallel\\.cxx\\Release\\4n1y4q2l\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-parallel\\.cxx\\Release\\4n1y4q2l\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "libmupen64plus-video-parallel::@6890427a1f51a3e7e1df": {
+      "artifactName": "libmupen64plus-video-parallel",
+      "abi": "x86",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-parallel\\build\\intermediates\\cxx\\Release\\4n1y4q2l\\obj\\x86\\libmupen64plus-video-parallel.so",
+      "runtimeFiles": []
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Android.mk",
+    "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Application.mk"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\ndk-build.cmd",
+      "NDK_PROJECT_PATH\u003dnull",
+      "APP_BUILD_SCRIPT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Android.mk",
+      "NDK_APPLICATION_MK\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Application.mk",
+      "APP_ABI\u003dx86",
+      "NDK_ALL_ABIS\u003dx86",
+      "NDK_DEBUG\u003d1",
+      "APP_PLATFORM\u003dandroid-21",
+      "NDK_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/obj",
+      "NDK_LIBS_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/lib",
+      "APP_CPPFLAGS+\u003d-fexceptions",
+      "NDK_APPLICATION_MK:\u003dApplication.mk",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\ndk-build.cmd",
+    "NDK_PROJECT_PATH\u003dnull",
+    "APP_BUILD_SCRIPT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Android.mk",
+    "NDK_APPLICATION_MK\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Application.mk",
+    "APP_ABI\u003dx86",
+    "NDK_ALL_ABIS\u003dx86",
+    "NDK_DEBUG\u003d1",
+    "APP_PLATFORM\u003dandroid-21",
+    "NDK_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/obj",
+    "NDK_LIBS_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/lib",
+    "APP_CPPFLAGS+\u003d-fexceptions",
+    "NDK_APPLICATION_MK:\u003dApplication.mk",
+    "-j11",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "mupen64plus-video-glide64mk2-egl-debug-x86": {
+      "buildCommandComponents": [
+        "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\ndk-build.cmd",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Android.mk",
+        "NDK_APPLICATION_MK\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Application.mk",
+        "APP_ABI\u003dx86",
+        "NDK_ALL_ABIS\u003dx86",
+        "NDK_DEBUG\u003d1",
+        "APP_PLATFORM\u003dandroid-21",
+        "NDK_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/obj",
+        "NDK_LIBS_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/lib",
+        "APP_CPPFLAGS+\u003d-fexceptions",
+        "NDK_APPLICATION_MK:\u003dApplication.mk",
+        "-j11",
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/obj/local/x86/libmupen64plus-video-glide64mk2-egl.so"
+      ],
+      "toolchain": "toolchain-x86",
+      "abi": "x86",
+      "artifactName": "mupen64plus-video-glide64mk2-egl",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2\\obj\\local\\x86\\libmupen64plus-video-glide64mk2-egl.so"
+    },
+    "mupen64plus-video-glide64mk2-debug-x86": {
+      "buildCommandComponents": [
+        "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\ndk-build.cmd",
+        "NDK_PROJECT_PATH\u003dnull",
+        "APP_BUILD_SCRIPT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Android.mk",
+        "NDK_APPLICATION_MK\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\Application.mk",
+        "APP_ABI\u003dx86",
+        "NDK_ALL_ABIS\u003dx86",
+        "NDK_DEBUG\u003d1",
+        "APP_PLATFORM\u003dandroid-21",
+        "NDK_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/obj",
+        "NDK_LIBS_OUT\u003dC:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/lib",
+        "APP_CPPFLAGS+\u003d-fexceptions",
+        "NDK_APPLICATION_MK:\u003dApplication.mk",
+        "-j11",
+        "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2/obj/local/x86/libmupen64plus-video-glide64mk2.so"
+      ],
+      "toolchain": "toolchain-x86",
+      "abi": "x86",
+      "artifactName": "mupen64plus-video-glide64mk2",
+      "output": "C:\\Users\\Douglas\\mupen64plus-ae-nonsaf\\mupen64plus-video-glide64mk2\\build\\intermediates\\cxx\\Debug\\306k2rx2\\obj\\local\\x86\\libmupen64plus-video-glide64mk2.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-x86": {
+      "cCompilerExecutable": "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\Douglas\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
